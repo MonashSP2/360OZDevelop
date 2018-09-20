@@ -12,13 +12,11 @@ class LocationForm extends Component{
     this.handleChange = this.handleChange.bind(this);
   }
 
+
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({latitude: event.target.latitude});
+    this.setState({longitude: event.target.longitude});
   }
-  // handleChange(event) {
-  //   this.setState({latitude: event.target.latitude});
-  //   this.setState({longitude: event.target.longitude});
-  // }
 
   render(){
     return(
@@ -30,15 +28,39 @@ class LocationForm extends Component{
       <form onSubmit={this.props.regionSearch}>
 
         <div className = 'inputCustomeLocation' >
+          <Geolocation onChange={this.handleChange}
+            render={({
+              fetchingPosition,
+              position: { coords: { latitude, longitude } = {} } = {},
+              error,
+              getCurrentPosition
+            }) =>
+              <div>
+                {error &&
+                  <div>
+                    {error.message}
+                  </div>}
+                  <div>
+                </div>
+                <input
+                  id = 'inputLocation'
+                  size="large"
+                  placeholder=" "
+                  name="latitude"
+                  value={latitude}
+                  onChange={this.handleChange} required></input>
+                <input
+                    id = 'inputLocation'
+                    size="large"
+                    placeholder="Getting location..."
+                    name="longitude"
+                    value={longitude}
+                    onChange={this.handleChange} required></input>
+              </div>}
+          />
 
-          <span>Input your location(eg. 900 Dandenong Rd)</span>
-          <input
-            id = 'inputLocation'
-            size="large"
-            placeholder=" "
-            name="location"
-            value={this.state.value}
-            onChange={this.handleChange} required/>
+
+
         </div>
         <div id="challengeSearchSection">
           <button className="submit" ><span id='searchButton'>Search</span></button>

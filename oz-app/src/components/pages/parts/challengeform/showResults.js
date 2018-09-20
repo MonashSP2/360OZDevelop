@@ -11,6 +11,8 @@ import InterestPin from '../marker-data/interest-pin';
 import CityInfo from "./location-info";
 import './showResults.css';
 import { Tabs } from 'antd';
+import L from 'leaflet'
+
 
 const TabPane = Tabs.TabPane;
 
@@ -52,23 +54,35 @@ class Results extends Component {
             hoveredFeature: null,
             returnPoints: [],
             returnPointsDay2: [],
-            isLoaded: false
+            isLoaded: false,
+            returnCoor:'',
         }
     };
 
 
-    componentDidMount() {
+    async componentDidMount() {
         window.addEventListener('resize', this._resize);
         this._resize();
         requestJson(jsondata, (error, response) => {
             if (!error) {
                 this._loadData(response);
             }
-        });
+        })
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this._resize);
+    }
+
+
+    drawLine = (returnCoordinates) => {
+
+      const day1map = this.myRef.current.getMap();
+      console.log(day1map.loaded());
+
+      day1map.on('load', function() {
+        console.log('cat');
+      })
     }
 
     _loadData = data => {
@@ -76,7 +90,7 @@ class Results extends Component {
            const location = this.props.match.params.locationpara;
            const results = this.props.location.state.results;
            const locationSplit = location.split("&");
-           console.log(results);
+           //console.log(results);
            let resultArrayJson = JSON.parse(results)
            let key;
 
@@ -106,7 +120,7 @@ class Results extends Component {
              }else if (key == 'clothing' && resultArrayJson[key] == false){
                resultArrayJson[key] = 'a'
              }
-             console.log(key,resultArrayJson[key]);
+             //console.log(key,resultArrayJson[key]);
            }
            let day1UrlParameter =[];
            let day2UrlParameter =[];
@@ -129,7 +143,6 @@ class Results extends Component {
            else if (key == 'clothing'){
               day2UrlParameter.push(resultArrayJson[key])}
            }
-           console.log(day1UrlParameter.length, day2UrlParameter.length);
            day1UrlParameter.push('a')
            day1UrlParameter.push('a')
            day1UrlParameter.push('a')
@@ -138,7 +151,7 @@ class Results extends Component {
            day2UrlParameter.push('a')
            day2UrlParameter.push('a')
            day2UrlParameter.push('a')
-           console.log(day1UrlParameter, day2UrlParameter);
+           //console.log(day1UrlParameter, day2UrlParameter);
 
            fetch('http://35.189.58.222/ondaychallenge/' + day1UrlParameter[0] + '/railwaystation/'+ day1UrlParameter[1] + '/' + day1UrlParameter[2] + '/'+ day1UrlParameter[3] + '/'  + locationSplit[0] + '/' + locationSplit[1] + '/')
                .then(res => res.json())
@@ -147,7 +160,6 @@ class Results extends Component {
                  for (let i = 0; i < json.length; i++) {
                    if (json[i].length == 0){
                      delete json[i]
-                     console.log(json[i]);
                    }
                   }
                   console.log(json);
@@ -170,26 +182,27 @@ class Results extends Component {
                              const location = this.props.match.params.locationpara;
 
                              const results = this.props.location.state.results;
-                             const returnCoor = this.state.returnCoordinates;
+                             this.setState({
+                                 returnCoor: this.state.returnCoordinates
+                             });
                              const locationSplit = location.split("&");
-
-
                              this.setState({latitude:parseFloat(locationSplit[0]),
                              longitude:parseFloat(locationSplit[1])})
-
+                             this.drawLine(this.state.returnCoor);
                              this._goToViewport(this.state.latitude, this.state.longitude);
-                             console.log(returnCoor);
 
-                             console.log("test");
+                         }).then(res =>{
 
-                             const map = this.myRef.current.getMap();
-                             //console.log(map);
+                           const day1map = this.myRef.current.getMap();
+                           console.log(this.state.returnCoor);
+                           console.log(day1map);
 
-
-
+                          day1map.on('load',()=>{
+                             console.log('cat');
+                           })
                          });
                      }
-               });
+               })
 
 
                fetch('http://35.189.58.222/ondaychallenge/' + '/railwaystation/'+ day2UrlParameter[0] + '/'+ day2UrlParameter[1] +'/' + day2UrlParameter[2] +'/' +  day2UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
@@ -226,11 +239,8 @@ class Results extends Component {
                                  console.log("test");
 
                                  const map = this.myRef.current.getMap();
-                                 //console.log(map);
 
                              });
-
-
                        }
 
                    });
