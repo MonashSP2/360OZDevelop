@@ -16,18 +16,8 @@ class SearchCampus extends Component {
     e.preventDefault();
     const text = e.target.location.value
     const textsplit = text.split(' ')
-    console.log(textsplit);
-    const locationAPI = await fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+ textsplit[0]+ '+'+ textsplit[1]+ '+'+ textsplit[2]+',+au&sensor=true_or_false&key=AIzaSyD_HKGG5CAXI7ZnekD_auJQ9m9EL_jnVwI')
+    const locationAPI = await fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+ textsplit[0]+ '+'+ textsplit[1]+ '+'+ textsplit[2]+'+au&sensor=true_or_false&key=AIzaSyD_HKGG5CAXI7ZnekD_auJQ9m9EL_jnVwI')
     const data = await locationAPI.json();
-
-    //   .then(res => res.json())
-    //    .then(json => {
-    //      this.setState({
-    //        latitude: json.results[0].geometry.location.lat,
-    //        longitude:json.results[0].geometry.location.log
-    //      });
-    //    })
-    // console.log(this.state.latitude);
 
     this.setState({
       latitude:data.results[0].geometry.location.lat,

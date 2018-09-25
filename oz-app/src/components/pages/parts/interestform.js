@@ -24,13 +24,11 @@ class InterestForm extends Component{
           <input
             id = 'inputInterest'
             size="large"
-            placeholder="Input your interest"
+            placeholder="Search your interest"
             name="interest"
             value={this.state.value}
             onChange={this.handleChange} required/>
-        </div>
-        <div id="submitSection">
-          <button className="submit" ><span id='searchButton'>Search</span></button>
+          <button id='searchIcon'></button>
         </div>
     	</form>
     )

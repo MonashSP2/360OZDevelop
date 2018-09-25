@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import './form.css';
 import Geolocation from "react-geolocation";
+import Autocomplete from 'react-google-autocomplete';
+
 
 class LocationForm extends Component{
   constructor(props) {
@@ -15,10 +17,6 @@ class LocationForm extends Component{
   handleChange(event) {
     this.setState({value: event.target.value});
   }
-  // handleChange(event) {
-  //   this.setState({latitude: event.target.latitude});
-  //   this.setState({longitude: event.target.longitude});
-  // }
 
   render(){
     return(
@@ -31,14 +29,16 @@ class LocationForm extends Component{
 
         <div className = 'inputCustomeLocation' >
 
-          <span>Input your location(eg. 900 Dandenong Rd)</span>
-          <input
-            id = 'inputLocation'
-            size="large"
-            placeholder=" "
-            name="location"
-            value={this.state.value}
-            onChange={this.handleChange} required/>
+            <Autocomplete
+              name="location"
+              style={{width: '90%',border:'none',fontSize:'16px'}}
+              onPlaceSelected={(place) => {
+                this.setState({value: place.geometry});
+              }}
+              types={['address']}
+              componentRestrictions={{country: "au"}}
+          required/>
+
         </div>
         <div id="challengeSearchSection">
           <button className="submit" ><span id='searchButton'>Search</span></button>

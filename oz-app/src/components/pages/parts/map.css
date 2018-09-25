@@ -15,3 +15,14 @@
   width: 170px;
   background: linear-gradient(to right, white , #547CDA);
 }
+#switchButton{
+  background: none;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+#switchButton:hover{
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  color: white;
+}

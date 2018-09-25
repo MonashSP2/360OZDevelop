@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './map.css';
 import MapGL, {FlyToInterpolator, Marker, Popup, NavigationControl} from 'react-map-gl';
+import Modal from 'react-awesome-modal';
 
 import SchoolPin from './marker-data/school-pin';
 import School from './marker-data/school.json';
@@ -12,7 +13,7 @@ import StorePin from './marker-data/store-pin';
 import InterestPin from './marker-data/interest-pin';
 
 import jsondata from './Ethnicity.geojson';
-import {defaultMapStyle, dataLayer} from './map-style.js';
+import {defaultMapStyle, dataLayer, dataLayerCrime} from './map-style.js';
 import {updatePopulation} from './utils';
 import {fromJS} from 'immutable';
 import {json as requestJson} from 'd3-request';
@@ -59,9 +60,23 @@ class ClaytonMapSection extends Component {
             clinics: [],
             stores: [],
             communities: [],
-            interests: []
+            interests: [],
+            visible : false
         }
     };
+
+    openModal() {
+    this.setState({
+        visible : true
+    });
+    }
+
+    closeModal() {
+        this.setState({
+            visible : false
+        });
+    }
+
 
   componentDidUpdate(prevProps) {
     const interest = this.props.interest;
@@ -72,20 +87,15 @@ class ClaytonMapSection extends Component {
   }
 
     componentDidMount() {
-        // let interest = this.props.defau;
 
-        const {longitude, latitude, zoom} = this.state.viewport;
-        window.addEventListener('resize', this._resize);
-        this._resize();
-        requestJson(jsondata, (error, response) => {
-            if (!error) {
-                this._loadData(response);
-            }
-        });
-
-
-        console.log(longitude, latitude, zoom);
-
+      const {longitude, latitude, zoom} = this.state.viewport;
+      window.addEventListener('resize', this._resize);
+      this._resize();
+      requestJson(jsondata, (error, response) => {
+          if (!error) {
+              this._loadData(response);
+          }
+      });
     }
 
     componentWillUnmount() {
@@ -95,13 +105,22 @@ class ClaytonMapSection extends Component {
 
     _loadData = data => {
 
-        updatePopulation(data, f => f.properties.chinese_population);
-
         const mapStyle = defaultMapStyle
         // Add geojson source to map
             .setIn(['sources', 'chinese_population'], fromJS({type: 'geojson', data}))
             // Add point layer to map
             .set('layers', defaultMapStyle.get('layers').push(dataLayer));
+
+        this.setState({data, mapStyle});
+    };
+
+    _loadDataCrime = data => {
+
+        const mapStyle = defaultMapStyle
+        // Add geojson source to map
+            .setIn(['sources', 'chinese_population'], fromJS({type: 'geojson', data}))
+            // Add point layer to map
+            .set('layers', defaultMapStyle.get('layers').push(dataLayerCrime));
 
         this.setState({data, mapStyle});
     };
@@ -144,14 +163,12 @@ class ClaytonMapSection extends Component {
         });
         const {longitude, latitude, zoom} = this.state.viewport;
         const interest = this.props.interest;
-
         console.log(longitude, latitude, zoom);
         const xl = latitude - 0.005 * zoom;
         const yl = longitude - 0.005 * zoom;
         const xh = latitude + 0.005 * zoom;
         const yh = longitude + 0.005 * zoom;
-        //
-        // fetch('http://localhost:3002/restaurants/'+ xl + '/'+ yl + '/' + xh + '/' + yh + '/' )
+
         fetch('http://35.189.58.222/restaurants/' + xl + '/' + yl + '/' + xh + '/' + yh + '/')
             .then(res => res.json())
             .then(json => {
@@ -191,6 +208,10 @@ class ClaytonMapSection extends Component {
                     isLoaded: true,
                     interests: json,
                 })
+                if (interest && this.state.interests.length == 0){
+                  console.log('No result found');
+                  this.openModal();
+                }
             });
 
     }
@@ -325,11 +346,26 @@ class ClaytonMapSection extends Component {
 
     render() {
         const {viewport, settings, mapStyle, items, isLoaded, interests, clinics, communities, stores} = this.state;
-        // const {longitude, latitude, zoom} = this.state.viewport;
-
 
         return (
             <div>
+
+              <div>
+                <Modal
+                    visible={this.state.visible}
+                    width="400"
+                    height="200"
+                    effect="fadeInDown"
+                    onClickAway={() => this.closeModal()}
+                    >
+                    <div>
+                        <h3 style={{paddingLeft:'40px',paddingTop:'40px'}}>Result not found</h3>
+                        <p style={{paddingLeft:'40px'}}>Please search nearby areas</p>
+                        <a style={{paddingLeft:'40px'}} href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                    </div>
+                  </Modal>
+              </div>
+
                 <div id="mapBox">
                     <MapGL
                         {...viewport}
@@ -340,6 +376,19 @@ class ClaytonMapSection extends Component {
                         mapboxApiAccessToken={MAPBOX_TOKEN}
                         onHover={this._onHover}
                     >
+                    <div className="control-panel"
+                         style={{
+                             background: '#3153A0',
+                             margin: '10px 10px 15px 510px',
+                             padding: '10px 10px 10px 10px',
+                             borderRadius: '50px'
+                         }}>
+                         <button id='switchButton' onClick= {this._loadData}> Population of Chinese Resident </button>
+                         <button id='switchButton' style={{  marginLeft: '10px'}} onClick= {this._loadDataCrime}> Crime rate </button>
+                       </div>
+
+
+
                     {this._renderTooltip()}
 
                         {
@@ -365,10 +414,11 @@ class ClaytonMapSection extends Component {
                         }
 
                         {School.map(this._renderSchoolPin)}
+
                         <div className="control-panel"
                              style={{
                                  background: 'white',
-                                 margin: '10px 10px 20px 650px',
+                                 margin: '10px 10px 20px 640px',
                                  padding: '10px 20px 20px 20px',
                                  opacity: '0.8',
                                  borderRadius: '10px'
@@ -379,19 +429,19 @@ class ClaytonMapSection extends Component {
 
                             <div>
                                 <input type="checkbox" checked={this.state.show}
-                                       onChange={() => this.toggle_show()}></input><span style={{paddingLeft:'10px'}}>Restaurant</span>
+                                       onChange={() => this.toggle_show()}></input><span style={{paddingLeft:'10px'}}>Chinese Restaurant</span>
                             </div>
                             <div>
                                 <input type="checkbox" checked={this.state.show_clinics}
-                                       onChange={() => this.toggle_show_clinic()}></input><span style={{paddingLeft:'10px'}}>Clinic</span>
+                                       onChange={() => this.toggle_show_clinic()}></input><span style={{paddingLeft:'10px'}}>Chinese Clinic</span>
                             </div>
                             <div>
                                 <input type="checkbox" checked={this.state.show_communities}
-                                       onChange={() => this.toggle_show_community()}></input><span style={{paddingLeft:'10px'}}>Community</span>
+                                       onChange={() => this.toggle_show_community()}></input><span style={{paddingLeft:'10px'}}>Chinese Social Club</span>
                             </div>
                             <div>
                                 <input type="checkbox" checked={this.state.show_stores}
-                                       onChange={() => this.toggle_show_store()}></input><span style={{paddingLeft:'10px'}}>Grocery Store</span>
+                                       onChange={() => this.toggle_show_store()}></input><span style={{paddingLeft:'10px'}}>Chinese Grocery Store</span>
                             </div>
                             <div style={{marginTop:'20px'}}>
                             <span >Click marker for details</span>
@@ -400,7 +450,7 @@ class ClaytonMapSection extends Component {
                           <div className="control-panel"
                                style={{
                                    background: 'white',
-                                   margin: '240px 10px 20px 650px',
+                                   margin: '170px 10px 20px 650px',
                                    padding: '10px 20px 20px 20px',
                                    opacity: '0.8',
                                    borderRadius: '10px'

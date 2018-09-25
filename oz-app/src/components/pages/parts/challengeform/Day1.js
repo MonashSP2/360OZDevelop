@@ -20,17 +20,18 @@ const Day1 = props => {
         <div id='processBarTitle'><span>Day 1</span><button type="submit" id="processBarButton">Day 2</button>
         </div>
         <div id='planItem'>
-          <Field
+          {/* <Field
             name="simCard"
             id="simCard"
             component="input"
             type="checkbox"
             style={{marginRight:'10px'}}
-          />
-            <label>Get a local sim card with</label>
+          /> */}
+
+            <label style={{marginLeft:'24px'}}>Get a local sim card with</label>
             <span id='fieldItemUnderLine'>
-            <Field id='fieldItem' name="simCard" component="select">
-              <option></option>
+            <Field id='fieldItem' name="simCard" component="select" style={{width:'220px'}}>
+              <option> --- a Provider --- </option>
               <option value="vodafone">Vodafone</option>
               <option value="telstra">Telstra</option>
               <option value="optus">Optus</option>
@@ -60,17 +61,21 @@ const Day1 = props => {
 
 
         <div id='planItem'>
-          <Field
-            name="bankCard"
-            id="bankCard"
-            component="input"
-            type="checkbox"
-            style={{marginRight:'10px'}}
-          />
-        <label>Get a bank card with</label>
+          {/*   <Field
+              name="bankCard"
+              id="bankCard"
+              component="input"
+              type="checkbox"
+              style={{marginRight:'10px'}}
+              props={{
+              disabled: true,
+            }}
+            /> */}
+
+        <label style={{marginLeft:'24px'}}>Get a bank card with</label>
             <span id='fieldItemUnderLine'>
-            <Field id='fieldItem' name="bankCard" component="select">
-              <option></option>
+            <Field id='fieldItem' name="bankCard" component="select" style={{width:'252px'}}>
+              <option> --- a Bank --- </option>
               <option value="commonwealth">Commonwealth Bank</option>
               <option value="anz">ANZ Bank</option>
               <option value="nab">NAB Bank</option>
@@ -84,19 +89,14 @@ const Day1 = props => {
         </div>
 
         <div id='planItem'>
-          <Field
-            name="goCampus"
-            id="goCampus"
-            component="input"
-            type="checkbox"
-            style={{marginRight:'10px'}}
-          />
-            <label>Go to your University Campus</label>
+            <label style={{marginLeft:'24px'}}>Go to your University Campus</label>
             <span id='fieldItemUnderLine'>
-            <Field id='fieldItem' name="goCampus" component="select">
-              <option></option>
+            <Field id='fieldItem' name="goCampus" component="select" style={{width:'178px'}}>
+              <option> --- the Campus --- </option>
               <option value="Monashclayton">Clayton</option>
               <option value="Monashcaulfield">Caulfield</option>
+                <option value="Monashclayton">Parkville</option>
+                <option value="Monashcaulfield">Peninsula</option>
             </Field>
             <div>
               <span style={{float:'left',color:'#939393',marginTop:'6px',marginLeft:'26px'}}>

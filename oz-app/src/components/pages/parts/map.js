@@ -173,6 +173,7 @@ class MapSection extends Component{
          onHover={this._onHover}>
          {this._renderTooltip()}
 
+
           {this._renderPopup()}
           <div className="nav" style={navStyle}>
           <NavigationControl onViewportChange={this._updateViewport} />
@@ -181,6 +182,8 @@ class MapSection extends Component{
          <ControlPanel
          containerComponent={this.props.containerComponent}
          onClick={this._onStyleChange}></ControlPanel>
+
+
      </MapGL>
    </div>
     </div>

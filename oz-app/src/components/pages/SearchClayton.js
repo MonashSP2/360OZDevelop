@@ -25,11 +25,11 @@ class Clayton extends Component{
         <div className="beforeContainer">
           <div className="beforeSection">
             <span className="beforeTitle">
-              Which is the best suburb for you?</span>
+              Explore around Clayton Campus</span>
             </div>
             <div className="droplist">
             <InterestForm interestSearch={this.interestSearch}/>
-          </div>
+            </div>
         </div>
         <div id = 'mapContainer'>
           <ClaytonMapSection

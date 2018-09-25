@@ -49,10 +49,11 @@
   color: '#5B5B5B';
 }
 .inputCustome{
+  width: 90%;
   border-bottom:2px solid #fff;
 }
 #inputInterest{
-  padding-right: 160px;
+
   background-color:rgba(0, 0, 0, 0);
   border-style: hidden;
   color: white;
@@ -81,4 +82,16 @@
   position: absolute;
   top: 85%;
   right: 10%;
+}
+#searchIcon{
+  float:right;
+  background-color: rgba(0, 0, 0, 0.0);
+  border: none;
+  background-image:url('../../image/search-solid.svg');
+  margin-top: 6px;
+  margin-right: 6px;
+  height:18px;
+  width:18px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
