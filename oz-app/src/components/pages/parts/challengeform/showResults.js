@@ -106,12 +106,16 @@ class Results extends Component {
            day2UrlParameter.push('a')
            day2UrlParameter.push('a')
 
+           console.log(day1UrlParameter);
            fetch('http://35.189.58.222/ondaychallenge/' + day1UrlParameter[0] + '/railwaystation/'+ day1UrlParameter[1] + '/' + day1UrlParameter[2] + '/'+ day1UrlParameter[3] + '/'  + locationSplit[0] + '/' + locationSplit[1] + '/')
                .then(res => res.json())
                .then(json => {
-
+                 console.log(json);
                  for (let i = 0; i < json.length; i++) {
                    if (json[i].length == 0){
+                     delete json[i]
+                   }
+                   if (!json[i]){
                      delete json[i]
                    }
                   }

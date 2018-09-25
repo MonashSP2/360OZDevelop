@@ -11,7 +11,7 @@ import {
 const MyMapComponent = compose(
   withProps({
     googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyD_HKGG5CAXI7ZnekD_auJQ9m9EL_jnVwI&v=3.exp&libraries=geometry,drawing,places",
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyA9AsNR1CEC9DhDkro8FOnmDXHjaYjz5PM&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
   containerElement: <div style={{ height: `500px` }} />,
     mapElement: <div style={{ height: `100%` }} />
@@ -24,10 +24,11 @@ const MyMapComponent = compose(
       const returnPointsList = []
       for (let i = 0; i < this.props.returnPoints.length; i++){
         const item = {}
-        console.log(this.props.returnPoints);
-        item['location'] = new window.google.maps.LatLng(this.props.returnPoints[i].latitude,  this.props.returnPoints[i].longitude)
-        returnPointsList.push(item)
-
+        console.log(this.props.returnPoints[i]);
+        if (this.props.returnPoints[i]){
+          item['location'] = new window.google.maps.LatLng(this.props.returnPoints[i].latitude,  this.props.returnPoints[i].longitude)
+          returnPointsList.push(item)
+        }
       }
       console.log(returnPointsList);
 

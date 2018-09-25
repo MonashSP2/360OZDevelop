@@ -12,7 +12,7 @@ import CommunityPin from './marker-data/community-pin';
 import StorePin from './marker-data/store-pin';
 import InterestPin from './marker-data/interest-pin';
 
-import jsondata from './Ethnicity.geojson';
+import jsondata from './EthnicityV5_withNumerical.geojson';
 import {defaultMapStyle, dataLayer, dataLayerCrime} from './map-style.js';
 import {updatePopulation} from './utils';
 import {fromJS} from 'immutable';
@@ -142,16 +142,15 @@ class ClaytonMapSection extends Component {
                      top: 10,
                      fontFamily: 'Montserrat',
                      fontSize: '14px',
-                     backgroundColor: '#FF8567',
+                     backgroundColor: '#4877DE',
                      opacity: 1,
                      color: '#FFF',
                      padding: '10px 10px 10px 10px',
                      borderRadius: '5px'
                  }}>
-                 <div>Details:</div>
                 <div>Suburb: {hoveredFeature.properties.Suburb}</div>
-                <div>Population of Chinese Resident: {hoveredFeature.properties.Population}</div>
-                <div>Count of Crime/Offence (2017): {hoveredFeature.properties.OffenceCount}</div>
+                <div>Population of Chinese Resident: {hoveredFeature.properties.ChinesePopulationRate}</div>
+                <div>Count of Crime/Offence (2017): {hoveredFeature.properties.CrimeRate}</div>
                 <div>1-bed Flat Avg. Rental Rate (2018): {hoveredFeature.properties.RentalRate_1Bed_Flat}</div>
             </div>
         );
@@ -379,8 +378,7 @@ class ClaytonMapSection extends Component {
                     <div className="control-panel"
                          style={{
                              background: '#3153A0',
-                             margin: '10px 10px 15px 510px',
-                             padding: '10px 10px 10px 10px',
+                             margin: '10px 10px 15px 520px',
                              borderRadius: '50px'
                          }}>
                          <button id='switchButton' onClick= {this._loadData}> Population of Chinese Resident </button>

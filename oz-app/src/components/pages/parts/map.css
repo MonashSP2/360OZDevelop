@@ -17,12 +17,16 @@
 }
 #switchButton{
   background: none;
-  border-radius: 10px;
+  border-radius: 50px;
   border: none;
   color: white;
+  height: 30px;
+  margin: 4px;
 }
 #switchButton:hover{
   background: rgba(0,0,0,0.3);
-  border-radius: 10px;
+  border-radius: 50px;
   color: white;
+  height: 30px;
+margin: 4px;
 }

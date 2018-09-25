@@ -31,6 +31,7 @@ export const dataLayerCrime = fromJS({
       property: 'OffenceCount',
       stops: [
         [0, '#fff'],
+        [100000, 'red'],
         [200000, 'red']
         ]
     },
