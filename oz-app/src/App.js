@@ -4,11 +4,12 @@ import Header from './components/Header';
 import Body from './components/Body';
 
 class App extends Component {
+
   render() {
     return (
       <div>
         <div className="col-xs-4 control-container">
-          <Header />
+          <Header/>
         </div>
         <div className="col-xs-8 control-body">
           <Body />
