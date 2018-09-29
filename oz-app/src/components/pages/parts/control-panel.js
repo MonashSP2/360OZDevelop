@@ -31,7 +31,6 @@ export default class StyleControls extends PureComponent {
   }
 
   _renderLayerControl(name) {
-    const {visibility, color} = this.state;
     return (
       <div key={name} className="input">
         <label>{name}</label>

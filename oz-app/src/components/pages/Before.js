@@ -2,8 +2,6 @@ import React, { Component}  from 'react';
 import './Before.css';
 import Form from './parts/form';
 import MapSection from './parts/map';
-import ControlPanel from './parts/control-panel';
-import { Link } from 'react-router-dom';
 
 class Before extends Component{
   state = {

@@ -3,9 +3,6 @@ import './Before.css';
 import './SearchClayton.css';
 import InterestForm from './parts/interestform';
 import ClaytonMapSection from './parts/mapclayton';
-import ControlPanel from './parts/control-panel';
-import { Link } from 'react-router-dom';
-
 
 
 class Clayton extends Component{

@@ -5,15 +5,27 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
 import { Button } from 'antd';
+import { Switch } from 'antd';
 
 
 export default withAuth(class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { authenticated: null };
+    this.state = {
+      authenticated: null,
+      isActive: false,
+     };
     this.checkAuthentication = this.checkAuthentication.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+  }
+
+  onChange = (checked) => {
+    if (checked === false){
+      this.setState({isActive: true})
+    }else{
+      this.setState({isActive: false})
+    }
   }
 
   async checkAuthentication() {
@@ -40,6 +52,19 @@ export default withAuth(class Home extends Component {
   }
 
   render() {
+
+    let welcomeId = 'welcomeDesc'
+    let beforeDescId = 'beforeDesc'
+    let afterDescId = 'afterDesc'
+    if (this.state.isActive === true) {
+      welcomeId = 'welcomeIdLanguage';
+      beforeDescId = 'beforeDescLanguage';
+      afterDescId = 'afterDescLanguage';
+    }else{
+      console.log(this.state.isActive);
+    }
+
+
     if (this.state.authenticated === null) return null;
 
     const button = this.state.authenticated ?
@@ -49,6 +74,7 @@ export default withAuth(class Home extends Component {
     return (
       <div>
         <div style={{float:'right', margin:'20px'}}>
+          <Switch style={{position:"absolute",top:"3.5%",right:"15%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked />
           {button}
         </div>
 
@@ -61,15 +87,15 @@ export default withAuth(class Home extends Component {
           <p id='welcomeTitle'>
             Welcome to 360OZ!
           </p>
-          <p id='welcomeDesc'>
-            A unique and interactive way for you to get to know Melbourne and settle in to your new city
+          <p id={welcomeId}>
+            A unique and fun way for <span style={{color:'#FF8567'}}>Chinese International Students</span> to get to know Melbourne and settle in to your new city
           </p>
           </div>
         <div className="beforeExplanation">
           <div>
           <p id='homeTitle'>Your journey starts here...</p>
           </div>
-          <div id='homeDesc'>
+          <div id={beforeDescId}>
           <p >Guide to find the best place to live in Melbourne that suit your needs</p>
           </div>
         </div>
@@ -78,7 +104,7 @@ export default withAuth(class Home extends Component {
 
           <p id='homeTitle'>3 Day Plan</p>
           </div>
-          <div id='homeDesc'>
+          <div id={afterDescId}>
           <p >Exciting 3-day plan to arrive, revive and immerse in Melbourne</p>
           </div>
         </div>

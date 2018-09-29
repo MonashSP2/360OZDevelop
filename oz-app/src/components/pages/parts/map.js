@@ -4,7 +4,6 @@ import MapGL, {FlyToInterpolator, Marker, Popup, NavigationControl} from 'react-
 import ControlPanel from './control-panel';
 
 import AmusementPin from './marker-data/amuseument-pin';
-import Amusement from './marker-data/amusement.json';
 
 import jsondata from './population_15.geojson';
 import {defaultMapStyle, dataLayer} from './map-style.js';
@@ -62,13 +61,13 @@ class MapSection extends Component{
     componentWillUpdate(campusPre){
       console.log(this.props.campus,campusPre.campus);
       if(this.props.campus !== campusPre.campus){
-        if( campusPre.campus == 'Clayton'){
+        if( campusPre.campus === 'Clayton'){
           this._goToViewport(-37.9150,145.1300);
-        }else if (campusPre.campus == 'Caulfield') {
+        }else if (campusPre.campus === 'Caulfield') {
           this._goToViewport(-37.8770,145.0443);
-        }else if (campusPre.campus == 'Parkville') {
+        }else if (campusPre.campus === 'Parkville') {
           this._goToViewport(-37.7840,144.9587);
-        }else if (campusPre.campus == 'Peninsula'){
+        }else if (campusPre.campus === 'Peninsula'){
           this._goToViewport(-38.1526,145.1361);
         }else {
           this._goToViewport(-37.8136,144.9631);
@@ -96,7 +95,7 @@ class MapSection extends Component{
     };
 
     _renderTooltip() {
-      const {hoveredFeature,x, y} = this.state;
+      const {hoveredFeature} = this.state;
 
       return hoveredFeature && (
         <div className="tooltip"

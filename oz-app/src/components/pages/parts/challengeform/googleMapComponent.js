@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { compose, withProps, lifecycle } from "recompose";
 import {
   withScriptjs,
@@ -22,16 +21,36 @@ const MyMapComponent = compose(
     componentDidMount() {
       const DirectionsService = new window.google.maps.DirectionsService();
       const returnPointsList = []
-      for (let i = 0; i < this.props.returnPoints.length; i++){
-        const item = {}
-        console.log(this.props.returnPoints[i]);
-        if (this.props.returnPoints[i]){
-          item['location'] = new window.google.maps.LatLng(this.props.returnPoints[i].latitude,  this.props.returnPoints[i].longitude)
-          returnPointsList.push(item)
+      if (this.props.returnPoints){
+        for (let i = 0; i < this.props.returnPoints.length; i++){
+          const item = {}
+          console.log(this.props.returnPoints[i]);
+          if (this.props.returnPoints[i]){
+            item['location'] = new window.google.maps.LatLng(this.props.returnPoints[i].latitude,  this.props.returnPoints[i].longitude)
+            returnPointsList.push(item)
+          }
+        }
+      }else if (this.props.returnPointsDay2) {
+        for (let i = 0; i < this.props.returnPointsDay2.length; i++){
+          const item = {}
+          console.log(this.props.returnPointsDay2[i]);
+          if (this.props.returnPointsDay2[i]){
+            item['location'] = new window.google.maps.LatLng(this.props.returnPointsDay2[i].latitude,  this.props.returnPointsDay2[i].longitude)
+            returnPointsList.push(item)
+          }
+        }
+      }else if (this.props.returnPointsDay3) {
+        for (let i = 0; i < this.props.returnPointsDay3.length; i++){
+          const item = {}
+          console.log(this.props.returnPointsDay3[i]);
+          if (this.props.returnPointsDay3[i]){
+            item['location'] = new window.google.maps.LatLng(this.props.returnPointsDay3[i].latitude,  this.props.returnPointsDay3[i].longitude)
+            returnPointsList.push(item)
+          }
         }
       }
-      console.log(returnPointsList);
 
+      console.log(returnPointsList);
 
 
       DirectionsService.route(

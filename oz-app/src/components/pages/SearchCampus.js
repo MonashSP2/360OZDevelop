@@ -22,8 +22,7 @@ class SearchCampus extends Component {
   }
 
  render() {
-   const { from } = this.props.location.state || '/'
-   const { fireRedirect } = this.state
+  const { fireRedirect } = this.state
   return (
     <div>
       <div className="button-container">

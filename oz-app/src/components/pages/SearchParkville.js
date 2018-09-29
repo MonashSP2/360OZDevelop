@@ -3,8 +3,6 @@ import './Before.css';
 import './SearchClayton.css';
 import InterestForm from './parts/interestform';
 import ParkvilleMapSection from './parts/mapparkville';
-import ControlPanel from './parts/control-panel';
-import { Link } from 'react-router-dom';
 
 class Parkville extends Component{
   state = {
@@ -22,7 +20,7 @@ class Parkville extends Component{
       <div>
         <div className="beforeContainer">
           <div className="beforeSection">
-            <span className="beforeTitle">Which is the best suburb for you?</span>
+            <span className="beforeTitle">Explore around Parkville Campus</span>
             </div>
             <div className="droplist">
               <InterestForm interestSearch={this.interestSearch}/>

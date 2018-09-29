@@ -30,7 +30,7 @@ class FormEntry extends Component {
         {page === 2 &&
           <Day2
             previousPage={this.previousPage}
-            onSubmit={onSubmit} 
+            onSubmit={this.nextPage}
           />}
         {page === 3 &&
           <Day3

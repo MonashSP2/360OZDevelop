@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import renderField from './renderField';
 import { Progress } from 'antd';
 import './Day.css';
 
@@ -12,26 +11,30 @@ const Day1 = props => {
       <div className="beforeContainer">
           <div className="beforeSection">
             <span className="beforeTitle">
-              Arrive</span>
+              Arrive Page</span>
           </div>
+          <div id="dayDetail">
+          Set up the basics as soon as you arrive in Melbourne
+        </div>
       </div>
       <form id="challengeForm" onSubmit={handleSubmit}>
         <Progress id='processBar' percent={33.3} strokeWidth={40} showInfo={false} />
-        <div id='processBarTitle'><span>Day 1</span><button type="submit" id="processBarButton">Day 2</button>
+        <div id='processBarTitle'><span>Day 1</span><button type="submit" id="processBarButton">Day 2</button><span>Day 3</span>
         </div>
         <div id='planItem'>
           {/* <Field
-            name="simCard"
-            id="simCard"
-            component="input"
-            type="checkbox"
-            style={{marginRight:'10px'}}
-          /> */}
+               name="simCard"
+               id="simCard"
+               component="input"
+               type="checkbox"
+               style={{marginRight:'10px'}}
+             disabled/>   */}
 
-            <label style={{marginLeft:'24px'}}>Get a local sim card with</label>
+
+            <label >Get a local sim card with</label>
             <span id='fieldItemUnderLine'>
-            <Field id='fieldItem' name="simCard" component="select" style={{width:'220px'}}>
-              <option> --- a Provider --- </option>
+            <Field id='fieldItem' name="simCard" component="select" style={{width:'265px'}}>
+              <option> ---Choose a Provider --- </option>
               <option value="vodafone">Vodafone</option>
               <option value="telstra">Telstra</option>
               <option value="optus">Optus</option>
@@ -61,7 +64,7 @@ const Day1 = props => {
 
 
         <div id='planItem'>
-          {/*   <Field
+              {/*   <Field
               name="bankCard"
               id="bankCard"
               component="input"
@@ -70,12 +73,12 @@ const Day1 = props => {
               props={{
               disabled: true,
             }}
-            /> */}
+            disabled/> */}
 
-        <label style={{marginLeft:'24px'}}>Get a bank card with</label>
+        <label>Get a bank card with</label>
             <span id='fieldItemUnderLine'>
-            <Field id='fieldItem' name="bankCard" component="select" style={{width:'252px'}}>
-              <option> --- a Bank --- </option>
+            <Field id='fieldItem' name="bankCard" component="select" style={{width:'300px'}}>
+              <option> ---Choose a Bank --- </option>
               <option value="commonwealth">Commonwealth Bank</option>
               <option value="anz">ANZ Bank</option>
               <option value="nab">NAB Bank</option>
@@ -89,14 +92,26 @@ const Day1 = props => {
         </div>
 
         <div id='planItem'>
-            <label style={{marginLeft:'24px'}}>Go to your University Campus</label>
+
+          {/* <Field
+              name="goCampus"
+              id="goCampus"
+              component="input"
+              type="checkbox"
+              style={{marginRight:'10px'}}
+              props={{
+              disabled: true,
+            }}
+            disabled/> */}
+
+            <label>Go to your University Campus</label>
             <span id='fieldItemUnderLine'>
-            <Field id='fieldItem' name="goCampus" component="select" style={{width:'178px'}}>
-              <option> --- the Campus --- </option>
+            <Field id='fieldItem' name="goCampus" component="select" style={{width:'225px'}}>
+              <option> ---Choose the Campus --- </option>
               <option value="Monashclayton">Clayton</option>
               <option value="Monashcaulfield">Caulfield</option>
-                <option value="Monashclayton">Parkville</option>
-                <option value="Monashcaulfield">Peninsula</option>
+                <option value="Monashparkville">Parkville</option>
+                <option value="Monashpeninsula">Peninsula</option>
             </Field>
             <div>
               <span style={{float:'left',color:'#939393',marginTop:'6px',marginLeft:'26px'}}>

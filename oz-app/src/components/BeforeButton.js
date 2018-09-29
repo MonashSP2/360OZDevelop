@@ -1,7 +1,5 @@
 import React from 'react';
 import './Button.css';
-import { Spin } from 'antd';
-
 
 const Before = () =>{
     return (

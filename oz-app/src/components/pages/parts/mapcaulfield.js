@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './map.css';
 import MapGL, {FlyToInterpolator, Marker, Popup, NavigationControl} from 'react-map-gl';
+import Modal from 'react-awesome-modal';
 
 import SchoolPin from './marker-data/school-pin';
 import School from './marker-data/school.json';
@@ -11,7 +12,7 @@ import CommunityPin from './marker-data/community-pin';
 import StorePin from './marker-data/store-pin';
 import InterestPin from './marker-data/interest-pin';
 
-import jsondata from './Ethnicity.geojson';
+import jsondata from './EthnicityV5_withNumerical.geojson';
 import {defaultMapStyle, dataLayer} from './map-style.js';
 import {updatePopulation} from './utils';
 import {fromJS} from 'immutable';
@@ -63,7 +64,6 @@ class CaulfieldMapSection extends Component {
     };
 
   componentDidUpdate(prevProps) {
-    const interest = this.props.interest;
 
    if (this.props.interest !== prevProps.interest) {
      this._onViewportChange()
@@ -113,7 +113,7 @@ class CaulfieldMapSection extends Component {
     };
 
     _renderTooltip() {
-        const {hoveredFeature, x, y} = this.state;
+        const {hoveredFeature} = this.state;
 
         return hoveredFeature && (
             <div className="tooltip"
@@ -122,16 +122,15 @@ class CaulfieldMapSection extends Component {
                      top: 10,
                      fontFamily: 'Montserrat',
                      fontSize: '14px',
-                     backgroundColor: '#FF8567',
+                     backgroundColor: '#4877DE',
                      opacity: 1,
                      color: '#FFF',
                      padding: '10px 10px 10px 10px',
                      borderRadius: '5px'
                  }}>
-                 <div>Details:</div>
                 <div>Suburb: {hoveredFeature.properties.Suburb}</div>
-                <div>Population of Chinese Resident: {hoveredFeature.properties.Population}</div>
-                <div>Count of Crime/Offence (2017): {hoveredFeature.properties.OffenceCount}</div>
+                <div>Population of Chinese Resident: {hoveredFeature.properties.ChinesePopulationRate}</div>
+                <div>Count of Crime/Offence (2017): {hoveredFeature.properties.CrimeRate}</div>
                 <div>1-bed Flat Avg. Rental Rate (2018): {hoveredFeature.properties.RentalRate_1Bed_Flat}</div>
             </div>
         );
@@ -190,6 +189,10 @@ class CaulfieldMapSection extends Component {
                     isLoaded: true,
                     interests: json,
                 })
+                if (interest && this.state.interests.length === 0){
+                  console.log('No result found');
+                  this.openModal();
+                }
             });
 
     }
@@ -320,14 +323,43 @@ class CaulfieldMapSection extends Component {
         })
     }
 
+        openModal() {
+        this.setState({
+            visible : true
+        });
+        }
+
+        closeModal() {
+            this.setState({
+                visible : false
+            });
+        }
+
 
     render() {
-        const {viewport, settings, mapStyle, items, isLoaded, interests, clinics, communities, stores} = this.state;
+        const {viewport, settings, mapStyle, items, interests, clinics, communities, stores} = this.state;
         // const {longitude, latitude, zoom} = this.state.viewport;
 
 
         return (
             <div>
+
+              <div>
+                <Modal
+                    visible={this.state.visible}
+                    width="400"
+                    height="200"
+                    effect="fadeInDown"
+                    onClickAway={() => this.closeModal()}
+                    >
+                    <div>
+                        <h3 style={{paddingLeft:'40px',paddingTop:'40px', color:'#DC4A4A'}}>Result not found</h3>
+                        <p style={{paddingLeft:'40px'}}>Please search nearby areas</p>
+                        <a style={{marginLeft:'40px',marginTop:'10px',padding:'5px 10px 5px 10px', border:'1px solid #DC4A4A',borderRadius:'20px',color:'#DC4A4A',textDecoration: 'none'}} href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                    </div>
+                  </Modal>
+              </div>
+
                 <div id="mapBox">
                     <MapGL
                         {...viewport}
@@ -367,56 +399,60 @@ class CaulfieldMapSection extends Component {
                         <div className="control-panel"
                              style={{
                                  background: 'white',
-                                 margin: '10px 10px 20px 650px',
+                                 margin: '10px 10px 20px 640px',
                                  padding: '10px 20px 20px 20px',
                                  opacity: '0.8',
                                  borderRadius: '10px'
                              }}>
                             <h4>
-                                Chinese Facility:
+
+                              <span >Click marker for details</span>
                             </h4>
 
                             <div>
                                 <input type="checkbox" checked={this.state.show}
-                                       onChange={() => this.toggle_show()}></input><span style={{paddingLeft:'10px'}}>Restaurant</span>
+                                       onChange={() => this.toggle_show()}></input><span style={{paddingLeft:'10px'}}>Chinese Restaurant</span>
                             </div>
                             <div>
                                 <input type="checkbox" checked={this.state.show_clinics}
-                                       onChange={() => this.toggle_show_clinic()}></input><span style={{paddingLeft:'10px'}}>Clinic</span>
+                                       onChange={() => this.toggle_show_clinic()}></input><span style={{paddingLeft:'10px'}}>Chinese Clinic</span>
                             </div>
                             <div>
                                 <input type="checkbox" checked={this.state.show_communities}
-                                       onChange={() => this.toggle_show_community()}></input><span style={{paddingLeft:'10px'}}>Community</span>
+                                       onChange={() => this.toggle_show_community()}></input><span style={{paddingLeft:'10px'}}>Chinese Social Club</span>
                             </div>
                             <div>
                                 <input type="checkbox" checked={this.state.show_stores}
-                                       onChange={() => this.toggle_show_store()}></input><span style={{paddingLeft:'10px'}}>Grocery Store</span>
+                                       onChange={() => this.toggle_show_store()}></input><span style={{paddingLeft:'10px'}}>Chinese Grocery Store</span>
                             </div>
-                            <div style={{marginTop:'20px'}}>
-                            <span >Click marker for details</span>
-                            </div>
-                          </div>
 
+                          </div>
                           <div className="control-panel"
                                style={{
                                    background: 'white',
-                                   margin: '240px 10px 20px 650px',
+                                   margin: '200px 10px 20px 700px',
                                    padding: '10px 20px 20px 20px',
                                    opacity: '0.8',
                                    borderRadius: '10px'
                                }}>
                               <h4>
-                                  Chinese Population(2016)
+                                  Chinese Population
                               </h4>
-                              <div id='colorlegend'>
+                              <div id='colorlegendHigh'>
+                                <span id='legendexplain'>High</span>
                               </div>
-                              <span  style={{fontSize:'10px',paddingRight:'120px',paddingLeft:'10px'}}>20</span>
-                              <span  style={{fontSize:'10px'}}>6000</span>
-                              <div style={{paddingTop:'20px'}}>
-                              <span style={{fontSize:'10px'}}>
-                                Data Authorised from Australia Burae Statics
-                              </span>
+                              <div id='colorlegendMedium'>
+                                <span id='legendexplain'>Medium</span>
                               </div>
+                              <div id='colorlegendLow'>
+                                <span id='legendexplain'>Low</span>
+                              </div>
+                              <div style={{paddingTop:'10px'}}>
+                                <span style={{fontSize:'12px'}}>
+                                  Data Source : Australian Bureau of Statistics (2016)
+                                </span>
+                              </div>
+
                             </div>
                         {this._renderPopup()}
                         <div className="nav" style={navStyle}>

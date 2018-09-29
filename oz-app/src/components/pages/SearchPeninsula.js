@@ -4,8 +4,6 @@ import './SearchClayton.css';
 import InterestForm from './parts/interestform';
 
 import PeninsulaMapSection from './parts/mappeninsula';
-import ControlPanel from './parts/control-panel';
-import { Link } from 'react-router-dom';
 
 class Peninsula extends Component{
   state = {
@@ -24,7 +22,7 @@ class Peninsula extends Component{
       <div>
         <div className="beforeContainer">
           <div className="beforeSection">
-            <span className="beforeTitle">Which is the best suburb for you?</span>
+            <span className="beforeTitle">Explore around Peninsula Campus</span>
             </div>
             <div className="droplist">
               <InterestForm interestSearch={this.interestSearch}/>

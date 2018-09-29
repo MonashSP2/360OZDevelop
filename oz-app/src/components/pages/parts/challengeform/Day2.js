@@ -1,28 +1,25 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import renderField from './renderField';
 import './Day.css';
 import { Progress } from 'antd';
-
-
-const renderError = ({ meta: { touched, error } }) =>
-  touched && error ? <span>{error}</span> : false;
 
 const Day2 = props => {
   const { handleSubmit, previousPage } = props;
   return (
 <div>
-
       <div className="beforeContainer">
           <div className="beforeSection">
             <span className="beforeTitle">
-              Revive</span>
+              Revive Page</span>
+          </div>
+          <div id="dayDetail">
+          Shop for things you need to have a comfortable life in Australia
           </div>
       </div>
   <form id="challengeForm" onSubmit={handleSubmit}>
     <Progress id='processBar' percent={66.6} strokeWidth={40} showInfo={false} />
-      <div id='processBarTitle'><button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 1</button><span>Day 2</span>
+      <div id='processBarTitle'><button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 1</button><span>Day 2</span><span>Day 3</span>
     </div>
       <div id='planItem'>
         <Field

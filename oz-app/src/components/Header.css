@@ -164,6 +164,3 @@
 .hidden {
       display: none;
 }
-#switchLanguage::after{
-  content: 'This is working';
-}

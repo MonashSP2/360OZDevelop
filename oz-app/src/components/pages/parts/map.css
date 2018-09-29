@@ -10,10 +10,22 @@
   height: 20px;
   width: 20px;
 }
-#colorlegend{
-  height: 10px;
-  width: 170px;
-  background: linear-gradient(to right, white , #547CDA);
+#colorlegendHigh{
+  height: 20px;
+  width: 20px;
+  background: #4877DE;
+}
+#colorlegendMedium{
+  height: 20px;
+  width: 20px;
+  background: #FF8567;
+  margin-top: 10px;
+}
+#colorlegendLow{
+  height: 20px;
+  width: 20px;
+  background: red;
+  margin-top: 10px;
 }
 #switchButton{
   background: none;
@@ -29,4 +41,7 @@
   color: white;
   height: 30px;
 margin: 4px;
+}
+#legendexplain{
+  margin-left: 30px;
 }

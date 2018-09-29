@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 import FormEntry from "./FormEntry";
 import { Redirect } from 'react-router';
-import { Route } from 'react-router-dom';
 
 class ChallengeForm extends Component {
   state = {

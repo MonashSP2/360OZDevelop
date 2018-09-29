@@ -41,7 +41,7 @@
   position: absolute;
   top: 25%;
   left: 50%;
-  width: 55%;
+  width: 60%;
   transform: translateX(-50%)
 }
 #planItem{
@@ -131,4 +131,10 @@
   padding: 5px;
   padding-left: 10px;
 }
+#dayDetail{
+  padding: 20px;
+  color: white;
+  width: 80%;
+}
+
 a:hover:after {text-decoration:none;}

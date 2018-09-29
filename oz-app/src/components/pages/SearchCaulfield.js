@@ -4,8 +4,6 @@ import InterestForm from './parts/interestform';
 import './SearchClayton.css';
 
 import CaulfieldMapSection from './parts/mapcaulfield';
-import ControlPanel from './parts/control-panel';
-import { Link } from 'react-router-dom';
 
 class Caulfield extends Component{
   state = {
@@ -23,7 +21,7 @@ class Caulfield extends Component{
       <div>
         <div className="beforeContainer">
           <div className="beforeSection">
-            <span className="beforeTitle">Which is the best suburb for you?</span>
+            <span className="beforeTitle">Explore around Caulfield Campus</span>
             </div>
             <div className="droplist">
               <InterestForm interestSearch={this.interestSearch}/>

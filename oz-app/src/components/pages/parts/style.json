@@ -41,13 +41,13 @@
             "ios": "4.0.0"
         }
     },
-    "center": [145.02129332431343, -37.80991246201805],
-    "zoom": 12.232366940676789,
+    "center": [145.0496587426694, -37.88007306076848],
+    "zoom": 13.192972173124412,
     "bearing": 0,
     "pitch": 0,
     "sources": {
         "composite": {
-            "url": "mapbox://pson0001.dx3oqmey,pson0001.c1ier50i,mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2,pson0001.8xchldna",
+            "url": "mapbox://pson0001.dx3oqmey,mapbox.mapbox-streets-v7,pson0001.bso1vqvq,pson0001.8az0yadr,mapbox.mapbox-terrain-v2,pson0001.5o1mofj8",
             "type": "vector"
         }
     },
@@ -3998,10 +3998,10 @@
             "paint": {"line-width": 2, "line-color": "hsl(227, 100%, 40%)"}
         },
         {
-            "id": "bus-tram-transportationdata-842iox",
+            "id": "ptv-metro-bus-stop-a4hjl3",
             "type": "symbol",
             "source": "composite",
-            "source-layer": "Bus_Tram_TransportationData-842iox",
+            "source-layer": "ptv_metro_bus_stop-a4hjl3",
             "layout": {
                 "icon-size": [
                     "interpolate",
@@ -4012,15 +4012,15 @@
                     14,
                     0.4
                 ],
-                "icon-image": "bus"
+                "icon-image": "Bus"
             },
             "paint": {}
         },
         {
-            "id": "railway-transportationdata-2kkvd5",
+            "id": "ptv-metro-train-station-9dp77r",
             "type": "symbol",
             "source": "composite",
-            "source-layer": "Railway_TransportationData-2kkvd5",
+            "source-layer": "ptv_metro_train_station-9dp77r",
             "layout": {
                 "icon-image": "train",
                 "icon-size": [
@@ -4060,11 +4060,30 @@
                 "text-halo-width": 2,
                 "text-halo-color": "hsl(0, 0%, 100%)"
             }
+        },
+        {
+            "id": "ptv-metro-tram-stop-77kq3k",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "ptv_metro_tram_stop-77kq3k",
+            "layout": {
+                "icon-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    12,
+                    0,
+                    14,
+                    0.4
+                ],
+                "icon-image": "Tram"
+            },
+            "paint": {}
         }
     ],
     "created": "2018-08-25T14:45:56.238Z",
     "id": "cjl9jf0iv3g542rmsrpmemlei",
-    "modified": "2018-09-22T05:10:04.550Z",
+    "modified": "2018-09-28T06:20:03.642Z",
     "owner": "pson0001",
     "visibility": "public",
     "draft": false
