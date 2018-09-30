@@ -36,12 +36,12 @@ class CaulfieldMapSection extends Component {
         this.state = {
             viewport: {
               latitude: -37.8770,
-      longitude: 145.0443,
-                zoom: 13,
-                bearing: 0,
-                pitch: 0,
-                width: 500,
-                height: 500,
+              longitude: 145.0443,
+              zoom: 13,
+              bearing: 0,
+              pitch: 0,
+              width: 500,
+              height: 500,
             },
             campusPre: '',
             popupInfo: null,
@@ -354,7 +354,7 @@ class CaulfieldMapSection extends Component {
                     >
                     <div>
                         <h3 style={{paddingLeft:'40px',paddingTop:'40px', color:'#DC4A4A'}}>Result not found</h3>
-                        <p style={{paddingLeft:'40px'}}>Please search nearby areas</p>
+                        <p style={{paddingLeft:'40px',marginBottom:'30px'}}>Please search nearby areas</p>
                         <a style={{marginLeft:'40px',marginTop:'10px',padding:'5px 10px 5px 10px', border:'1px solid #DC4A4A',borderRadius:'20px',color:'#DC4A4A',textDecoration: 'none'}} href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
                     </div>
                   </Modal>

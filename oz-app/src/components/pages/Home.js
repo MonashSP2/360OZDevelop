@@ -79,7 +79,6 @@ export default withAuth(class Home extends Component {
         </div>
 
         <div className="button-container">
-
           <Link to='/searchcampus'><BeforeButton /></Link>
           <Link to='/locationrequest'><AfterButton /></Link>
         </div>

@@ -10,6 +10,8 @@ import SearchPeninsula from './pages/SearchPeninsula';
 import LocationRequest from './pages/LocationRequest';
 import PlanTemplate from './pages/PlanTemplate';
 import Results from './pages/parts/challengeform/showResults';
+import EmailPlan from './pages/parts/challengeform/emailPlan';
+
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Login from './pages/Login';
 
@@ -43,6 +45,7 @@ class Body extends Component {
           <SecureRoute exact path='/locationrequest' component={LocationRequest}/>
           <SecureRoute exact path='/locationrequest/:locationpara' component={PlanTemplate}/>
           <SecureRoute exact path='/locationrequest/:locationpara/challengesubmission' component={Results}/>
+          <SecureRoute exact path='/email' component={EmailPlan}/>
             <Route path='/login' render={() => <Login baseUrl='https://dev-801046.oktapreview.com' />} />
             <Route path='/implicit/callback' component={ImplicitCallback} />
       </Switch>

@@ -6,7 +6,7 @@ import './showResults.css';
 import { Tabs } from 'antd';
 import GoogleMapComponent from './googleMapComponent';
 import ReactLoading from 'react-loading';
-
+import { Redirect } from 'react-router';
 
 const TabPane = Tabs.TabPane;
 
@@ -32,6 +32,7 @@ class Results extends Component {
             day1Coordinates:'',
             day2Coordinates:'',
             day3Coordinates:'',
+            fireRedirect: false,
         }
     };
 
@@ -300,8 +301,9 @@ class Results extends Component {
         });
       }
 
-      onClick(){
+      onClick = () => {
         console.log('clicked');
+        this.setState({fireRedirect:true});
       }
 
 
@@ -318,6 +320,14 @@ class Results extends Component {
         <div id='tabBackgroud'></div>
         <div id='emailBackgroud'>
           <button id='emailPlanButton' onClick={this.onClick}>Email me the plan</button>
+
+            {this.state.fireRedirect && (
+            <Redirect to={{pathname:'/email',
+              state: {
+                day1: this.state.returnPoints,
+                day2: this.state.returnPointsDay2,
+                day3: this.state.returnPointsDay3 } }}/>
+          )}
         </div>
             <Tabs style={{position:'absolute',left:'-41%',top:'8%',width:'93vw',height:'90vh',paddingLeft:'500px'}}
               tabBarGutter='100px' tabBarStyle={{border:'none'}} defaultActiveKey="1"  onChange={callback}>
