@@ -28,14 +28,22 @@ class EmailPlan extends Component {
 
   handleChange = e => {
     this.setState({email: e.target.value})
-  }
-  handleSubmit = e => {
-    e.preventDefault()
+  };
+  handleSubmit = async e => {
+    e.preventDefault();
     console.log("day1",this.state.day1message);
     console.log("day2",this.state.day2message);
     console.log("day3",this.state.day3message);
     this.openModal();
-  }
+    const { email, day1message,day2message,day3message } = this.state;
+    // const form = await axios.post('http://localhost:3002/sendEmail/',{
+        const form = await axios.post('http://35.189.58.222/sendEmail/',{
+        email,
+        day1message,
+        day2message,
+        day3message
+      })
+  };
   componentWillMount(){
     const day1 = this.props.location.state.day1;
     const day2 = this.props.location.state.day2;
