@@ -20,15 +20,15 @@ app.post('/api/form', (req, res) =>{
     let transporter = nodemailer.createTransport({
       host: 'smtp.live.com',
       port: 587,
-      secure: false, 
+      secure: false,
       auth: {
-        user: 'ping.s19@hotmail.com', // generated ethereal user
-        pass: 'songsongsong00' // generated ethereal password
+        user: 'threesixtyoz@hotmail.com', // generated ethereal user
+        pass: 'Developweb3600' // generated ethereal password
       },
 
     });
     let mailOptions = {
-      from: 'ping.s19@hotmail.com', // sender address
+      from: 'threesixtyoz@hotmail.com', // sender address
       to: req.body.email, // list of receivers
       subject: 'Node Contact Request', // Subject line
       text: 'Hello world?', // plain text body
