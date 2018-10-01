@@ -37,7 +37,7 @@ class Results extends Component {
     };
 
 
-    async componentDidMount() {
+    componentDidMount() {
         console.log(this.state.isloadingPage)
         requestJson(jsondata, (error, response) => {
             if (!error) {
@@ -46,7 +46,7 @@ class Results extends Component {
         })
     }
 
-    _loadData = data => {
+    _loadData = async data => {
 
         const location = this.props.match.params.locationpara;
         const results = this.props.location.state.results;
@@ -163,8 +163,9 @@ class Results extends Component {
         day3UrlParameter.push('a')
         day3UrlParameter.push('a')
 
-        console.log(day3UrlParameter);
-        fetch('http://35.189.58.222/ondaychallenge/' + day1UrlParameter[0] + '/a/' + day1UrlParameter[1] + '/' + day1UrlParameter[2] + '/' + day1UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
+         console.log(day3UrlParameter);
+        //fetch day 1 route
+        await fetch('http://35.189.58.222/ondaychallenge/' + day1UrlParameter[0] + '/a/' + day1UrlParameter[1] + '/' + day1UrlParameter[2] + '/' + day1UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
             .then(res => res.json())
             .then(json => {
                 console.log(json, json.length);
@@ -222,23 +223,24 @@ class Results extends Component {
                     returnPoints: json,
                     renderMap: true,
                 });
-                this.setState({isloadingPage: false})
+                this.setState({isloadingPage: false});
 
                 // Format start and end coordicates in to string for all places redirection
 
                 let tempReturnPoints = this.state.returnPoints;
                 console.log(tempReturnPoints);
-                let tempNavigate = ''
+                let tempNavigate = '';
                 for (let i = 0; i < tempReturnPoints.length; i++) {
                     if (tempReturnPoints[i]) {
                         tempNavigate += tempReturnPoints[i].latitude + ',' + tempReturnPoints[i].longitude + '/'
                     }
                 }
                 this.setState({day1Coordinates: tempNavigate})
-            })
+            });
 
         //console.log(day2UrlParameter);
-        fetch('http://35.189.58.222/ondaychallenge/' + '/a/' + day2UrlParameter[0] + '/' + day2UrlParameter[1] + '/' + day2UrlParameter[2] + '/' + day2UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
+        //fetch day 2 route
+        await fetch('http://35.189.58.222/ondaychallenge/' + '/a/' + day2UrlParameter[0] + '/' + day2UrlParameter[1] + '/' + day2UrlParameter[2] + '/' + day2UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
             .then(res => res.json())
             .then(json => {
 
@@ -271,39 +273,41 @@ class Results extends Component {
                 }
                 this.setState({day2Coordinates: tempNavigate});
 
-                //day 3
-                fetch('http://35.189.58.222/ondaychallenge/' + day3UrlParameter[0] + '/' + day3UrlParameter[1] + '/' + day3UrlParameter[2] + '/' + day3UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
-                    .then(res => res.json())
-                    .then(json => {
-                        console.log(json);
 
-                        for (let i = 0; i < json.length; i++) {
-                            if (json[i].length === 0) {
-                                delete json[i]
-                            }
-                            if (!json[i]) {
-                                delete json[i]
-                            }
-                        }
-                        this.setState({
-                            isLoaded: true,
-                            returnPointsDay3: json,
-                        });
-                        let tempReturnPointsDay3 = this.state.returnPointsDay3;
-                        console.log(tempReturnPointsDay3);
-                        if (tempReturnPointsDay3.length > 0) {
-                            this.setState({renderMapDay3: true})
-                        }
+            });
 
-                        let tempNavigate = ''
-                        for (let i = 0; i < tempReturnPointsDay3.length; i++) {
-                            if (tempReturnPointsDay3[i]) {
-                                tempNavigate += tempReturnPointsDay3[i].latitude + ',' + tempReturnPointsDay3[i].longitude + '/'
-                            }
-                        }
-                        this.setState({day3Coordinates: tempNavigate})
-                        console.log(this.state.day3Coordinates);
-                    });
+        //day 3
+        await fetch('http://35.189.58.222/ondaychallenge/' + '/a/'+ day3UrlParameter[0] + '/' + day3UrlParameter[1] + '/' + day3UrlParameter[2] + '/' + day3UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+
+                for (let i = 0; i < json.length; i++) {
+                    if (json[i].length === 0) {
+                        delete json[i]
+                    }
+                    if (!json[i]) {
+                        delete json[i]
+                    }
+                }
+                this.setState({
+                    isLoaded: true,
+                    returnPointsDay3: json,
+                });
+                let tempReturnPointsDay3 = this.state.returnPointsDay3;
+                console.log(tempReturnPointsDay3);
+                if (tempReturnPointsDay3.length > 0) {
+                    this.setState({renderMapDay3: true})
+                }
+
+                let tempNavigate = ''
+                for (let i = 0; i < tempReturnPointsDay3.length; i++) {
+                    if (tempReturnPointsDay3[i]) {
+                        tempNavigate += tempReturnPointsDay3[i].latitude + ',' + tempReturnPointsDay3[i].longitude + '/'
+                    }
+                }
+                this.setState({day3Coordinates: tempNavigate})
+                console.log(this.state.day3Coordinates);
             });
 
 
