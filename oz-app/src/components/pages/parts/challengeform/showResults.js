@@ -86,7 +86,7 @@ class Results extends Component {
                 resultArrayJson[key] = 'a'
             }
             if (key === 'arts' && resultArrayJson[key] === true) {
-                resultArrayJson[key] = 'art_gallery'
+                resultArrayJson[key] = 'art'
             } else if (key === 'arts' && resultArrayJson[key] === false) {
                 resultArrayJson[key] = 'a'
             }
@@ -96,7 +96,7 @@ class Results extends Component {
                 resultArrayJson[key] = 'a'
             }
             if (key === 'attractions' && resultArrayJson[key] === true) {
-                resultArrayJson[key] = 'point_of_interest'
+                resultArrayJson[key] = 'landmark'
             } else if (key === 'attractions' && resultArrayJson[key] === false) {
                 resultArrayJson[key] = 'a'
             }
@@ -277,7 +277,7 @@ class Results extends Component {
             });
 
         //day 3
-        await fetch('http://35.189.58.222/ondaychallenge/' + '/a/'+ day3UrlParameter[0] + '/' + day3UrlParameter[1] + '/' + day3UrlParameter[2] + '/' + day3UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
+        await fetch('http://35.189.58.222/ondaychallenge/' + day3UrlParameter[0] + '/' + day3UrlParameter[1] + '/' + day3UrlParameter[2] + '/' + day3UrlParameter[3] + '/' + locationSplit[0] + '/' + locationSplit[1] + '/')
             .then(res => res.json())
             .then(json => {
                 console.log(json);
