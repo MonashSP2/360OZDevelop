@@ -114,7 +114,7 @@ class Results extends Component {
           if (key === 'simCard'){
            day1UrlParameter.push('simcard'+'&'+resultArrayJson[key])}
           else if (key === 'mykiCard'){
-             day1UrlParameter.push('store'+'&'+resultArrayJson[key])}
+             day1UrlParameter.push('convenience_store'+'&'+resultArrayJson[key])}
           else if (key === 'bankCard'){
               day1UrlParameter.push('bank'+'&'+resultArrayJson[key])}
           else if (key === 'goCampus'){
@@ -209,7 +209,7 @@ console.log(day1UrlParameter);
                         json[i].type = 'Get a local sim card at'
                         json[i].number = alphabet[counter]
                         counter += 1
-                      }else if (json[i].type === 'store') {
+                      }else if (json[i].type === 'convenience_store') {
                         json[i].type = 'Get a Myki card at'
                         json[i].number = alphabet[counter]
                         counter += 1
@@ -424,7 +424,7 @@ console.log(day1UrlParameter);
                         ))}
                   </div>
                   <div style={{marginLeft:'-500px',marginTop:'90px'}}>
-                      <li id='allLocationContainer'> Start Day 1 Journery
+                      <li id='allLocationContainer'> Start Day 1 Journey
                         <a id="allGoogleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/dir/' + day1Coordinates}>
                         </a>
                       </li>
@@ -455,7 +455,7 @@ console.log(day1UrlParameter);
                         ))}
                   </div>
                   <div style={{marginLeft:'-500px',marginTop:'90px'}}>
-                      <li id='allLocationContainer'>  Start Day 2 Journery
+                      <li id='allLocationContainer'>  Start Day 2 Journey
                         <a id="allGoogleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/dir/' + day2Coordinates}>
                         </a>
                       </li>
@@ -486,7 +486,7 @@ console.log(day1UrlParameter);
                         ))}
                   </div>
                   <div style={{marginLeft:'-500px',marginTop:'90px'}}>
-                      <li id='allLocationContainer'>  Start Day 3 Journery
+                      <li id='allLocationContainer'>  Start Day 3 Journey
                         <a id="allGoogleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/dir/' + day3Coordinates}>
                         </a>
                       </li>
