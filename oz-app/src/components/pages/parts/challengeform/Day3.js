@@ -14,7 +14,7 @@ const Day3 = props => {
                 Immerse Page</span>
             </div>
             <div id="dayDetail" style={{width:'70%'}}>
-            Experience new checklist Australian Culture according to your preferences
+            Experience Australian Culture according to your preferences
           </div>
         </div>
   <form  id="challengeForm" onSubmit={handleSubmit}>
