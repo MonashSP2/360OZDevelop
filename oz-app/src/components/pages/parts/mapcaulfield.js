@@ -189,6 +189,7 @@ class CaulfieldMapSection extends Component {
                     isLoaded: true,
                     interests: json,
                 })
+                console.log(json);
                 if (interest && this.state.interests.length === 0){
                   console.log('No result found');
                   this.openModal();

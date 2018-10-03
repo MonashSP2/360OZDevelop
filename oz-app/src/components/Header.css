@@ -164,3 +164,9 @@
 .hidden {
       display: none;
 }
+.usefulLink{
+  position: absolute;
+  top: 6.5%;
+  right: -15%;
+  z-index: 999;
+}

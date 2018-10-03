@@ -21,10 +21,11 @@ const MyMapComponent = compose(
     componentDidMount() {
       const DirectionsService = new window.google.maps.DirectionsService();
       const returnPointsList = []
+
       if (this.props.returnPoints){
         for (let i = 0; i < this.props.returnPoints.length; i++){
           const item = {}
-          console.log(this.props.returnPoints[i]);
+          const returnPointsNumber  = this.props.returnPoints
           if (this.props.returnPoints[i]){
             item['location'] = new window.google.maps.LatLng(this.props.returnPoints[i].latitude,  this.props.returnPoints[i].longitude)
             returnPointsList.push(item)
@@ -33,7 +34,7 @@ const MyMapComponent = compose(
       }else if (this.props.returnPointsDay2) {
         for (let i = 0; i < this.props.returnPointsDay2.length; i++){
           const item = {}
-          console.log(this.props.returnPointsDay2[i]);
+          const returnPointsNumber  = this.props.returnPointsDay2
           if (this.props.returnPointsDay2[i]){
             item['location'] = new window.google.maps.LatLng(this.props.returnPointsDay2[i].latitude,  this.props.returnPointsDay2[i].longitude)
             returnPointsList.push(item)
@@ -42,16 +43,13 @@ const MyMapComponent = compose(
       }else if (this.props.returnPointsDay3) {
         for (let i = 0; i < this.props.returnPointsDay3.length; i++){
           const item = {}
-          console.log(this.props.returnPointsDay3[i]);
+          const returnPointsNumber  = this.props.returnPointsDay3
           if (this.props.returnPointsDay3[i]){
             item['location'] = new window.google.maps.LatLng(this.props.returnPointsDay3[i].latitude,  this.props.returnPointsDay3[i].longitude)
             returnPointsList.push(item)
           }
         }
       }
-
-      console.log(returnPointsList);
-
 
       DirectionsService.route(
         {

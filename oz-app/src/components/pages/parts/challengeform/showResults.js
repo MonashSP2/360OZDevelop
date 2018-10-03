@@ -38,7 +38,6 @@ class Results extends Component {
 
 
     async componentDidMount() {
-      console.log(this.state.isloadingPage)
         requestJson(jsondata, (error, response) => {
             if (!error) {
                 this._loadData(response);
@@ -47,7 +46,6 @@ class Results extends Component {
     }
 
     _loadData = data => {
-
            const location = this.props.match.params.locationpara;
            const results = this.props.location.state.results;
            const locationSplit = location.split("&");
@@ -71,7 +69,7 @@ class Results extends Component {
                resultArrayJson[key] = 'a'
              }
              if (key === 'beddings' && resultArrayJson[key] === true){
-               resultArrayJson[key] = 'beddings'
+               resultArrayJson[key] = 'home_goods_store|store'
              }else if (key === 'beddings' && resultArrayJson[key] === false){
                resultArrayJson[key] = 'a'
              }
@@ -86,7 +84,7 @@ class Results extends Component {
                resultArrayJson[key] = 'a'
              }
              if (key === 'arts' && resultArrayJson[key] === true){
-               resultArrayJson[key] = 'art_gallery'
+               resultArrayJson[key] = 'art'
              }else if (key === 'arts' && resultArrayJson[key] === false){
                resultArrayJson[key] = 'a'
              }
@@ -96,7 +94,7 @@ class Results extends Component {
                resultArrayJson[key] = 'a'
              }
              if (key === 'attractions' && resultArrayJson[key] === true){
-               resultArrayJson[key] = 'point_of_interest'
+               resultArrayJson[key] = 'landmark'
              }else if (key === 'attractions' && resultArrayJson[key] === false){
                resultArrayJson[key] = 'a'
              }
@@ -105,57 +103,57 @@ class Results extends Component {
              }else if (key === 'wildlife' && resultArrayJson[key] === false){
                resultArrayJson[key] = 'a'
              }
-
            }
-         console.log(resultArrayJson);
+
+          console.log(resultArrayJson);
+
          let day1UrlParameter =[];
          let day2UrlParameter =[];
          let day3UrlParameter =[];
          for (key in resultArrayJson) {
           if (key === 'simCard'){
-           day1UrlParameter.push(resultArrayJson[key])}
+           day1UrlParameter.push('simcard'+'&'+resultArrayJson[key])}
           else if (key === 'mykiCard'){
-             day1UrlParameter.push(resultArrayJson[key])}
+             day1UrlParameter.push('store'+'&'+resultArrayJson[key])}
           else if (key === 'bankCard'){
-              day1UrlParameter.push(resultArrayJson[key])}
+              day1UrlParameter.push('bank'+'&'+resultArrayJson[key])}
           else if (key === 'goCampus'){
-                day1UrlParameter.push(resultArrayJson[key])}
+                day1UrlParameter.push('university'+'&'+resultArrayJson[key])}
           else if (key === 'groceries'){
-              day2UrlParameter.push(resultArrayJson[key])}
+              day2UrlParameter.push('groceries'+'&'+resultArrayJson[key])}
           else if (key === 'beddings'){
-              day2UrlParameter.push(resultArrayJson[key])}
+              day2UrlParameter.push('beddings'+'&'+resultArrayJson[key])}
           else if (key === 'cooking'){
-              day2UrlParameter.push(resultArrayJson[key])}
+              day2UrlParameter.push('cooking'+'&'+resultArrayJson[key])}
           else if (key === 'clothing'){
-              day2UrlParameter.push(resultArrayJson[key])}
+              day2UrlParameter.push('clothing'+'&'+resultArrayJson[key])}
           else if (key === 'arts'){
-              day3UrlParameter.push(resultArrayJson[key])}
+              day3UrlParameter.push('arts'+'&'+resultArrayJson[key])}
           else if (key === 'history'){
-              day3UrlParameter.push(resultArrayJson[key])}
+              day3UrlParameter.push('history'+'&'+resultArrayJson[key])}
           else if (key === 'attractions'){
-              day3UrlParameter.push(resultArrayJson[key])}
+              day3UrlParameter.push('attractions'+'&'+resultArrayJson[key])}
           else if (key === 'wildlife'){
-              day3UrlParameter.push(resultArrayJson[key])}
+              day3UrlParameter.push('wildlife'+'&'+resultArrayJson[key])}
           }
+           day1UrlParameter.push('a':'a')
+           day1UrlParameter.push('a':'a')
+           day1UrlParameter.push('a':'a')
+           day1UrlParameter.push('a':'a')
+           day2UrlParameter.push('a':'a')
+           day2UrlParameter.push('a':'a')
+           day2UrlParameter.push('a':'a')
+           day2UrlParameter.push('a':'a')
+           day3UrlParameter.push('a':'a')
+           day3UrlParameter.push('a':'a')
+           day3UrlParameter.push('a':'a')
+           day3UrlParameter.push('a':'a')
 
-           day1UrlParameter.push('a')
-           day1UrlParameter.push('a')
-           day1UrlParameter.push('a')
-           day1UrlParameter.push('a')
-           day2UrlParameter.push('a')
-           day2UrlParameter.push('a')
-           day2UrlParameter.push('a')
-           day2UrlParameter.push('a')
-           day3UrlParameter.push('a')
-           day3UrlParameter.push('a')
-           day3UrlParameter.push('a')
-           day3UrlParameter.push('a')
+console.log(day1UrlParameter);
 
-           console.log(day3UrlParameter);
-           fetch('http://35.189.58.222/ondaychallenge/' + day1UrlParameter[0] + '/a/'+ day1UrlParameter[1] + '/' + day1UrlParameter[2] + '/'+ day1UrlParameter[3] + '/'  + locationSplit[0] + '/' + locationSplit[1] + '/')
+           fetch('http://35.189.58.222/ondaychallenge2/' + day1UrlParameter[0] + '/'+ day1UrlParameter[1] + '/' + day1UrlParameter[2] + '/'+ day1UrlParameter[3] + '/'  + locationSplit[0] + '/' + locationSplit[1] + '/')
                .then(res => res.json())
                .then(json => {
-                 console.log(json,json.length);
                  for (let i = 0; i < json.length; i++) {
                    if (json[i].length === 0){
                      delete json[i]
@@ -164,47 +162,68 @@ class Results extends Component {
                      delete json[i]
                    }
                   }
-                  // Manual input the Campus coordicates incase out of API search region
                   for (let i = 0; i < day1UrlParameter.length; i++) {
-                    if (day1UrlParameter[i] === 'Monashclayton'){
-                      console.log(day1UrlParameter[i]);
+                    if (day1UrlParameter[i] === 'university&Monashclayton'){
                       json.push({
                         id:'1',
                         name:'Clayton Monash Campus',
                         latitude:-37.9150,
-                        longitude:145.1300
+                        longitude:145.1300,
+                        type:'Go to your campus'
                       })
                     }
-                    if (day1UrlParameter[i] === 'Monashcaulfield'){
-                        console.log(day1UrlParameter[i]);
+                    if (day1UrlParameter[i] === 'university&Monashcaulfield'){
                         json.push({
                           id:'1',
                           name:'Caulfield Monash Campus',
                           latitude:-37.8770,
-                          longitude:145.0443
+                          longitude:145.0443,
+                          type:'Go to your campus'
                         })
                     }
-                    if (day1UrlParameter[i] === 'Monashparkville'){
-                        console.log(day1UrlParameter[i]);
+                    if (day1UrlParameter[i] === 'university&Monashparkville'){
                         json.push({
                           id:'1',
                           name:'Parkville Monash Campus',
                           latitude:-37.7840,
-                          longitude:144.9587
+                          longitude:144.9587,
+                          type:'Go to your campus'
                         })
                     }
-                    if (day1UrlParameter[i] === 'Monashpeninsula'){
-                      console.log(day1UrlParameter[i]);
+                    if (day1UrlParameter[i] === 'university&Monashpeninsula'){
                       json.push({
                         id:'1',
                         name:'Peninsula Monash Campus',
                         latitude:-38.1526,
-                        longitude:145.1361
+                        longitude:145.1361,
+                        type:'Go to your campus'
                       })
                     }
                   }
-                  //console.log(json);
-
+                  const alphabet = ['B','C','D','E']
+                  console.log(json);
+                  let counter = 0;
+                  for (let i = 0; i < json.length; i++) {
+                    if (json[i]){
+                      if (json[i].type === 'simcard'){
+                        json[i].type = 'Get a local sim card at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }else if (json[i].type === 'store') {
+                        json[i].type = 'Get a Myki card at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }else if (json[i].type === 'bank') {
+                        json[i].type = 'Get a local bank card at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }else if (json[i].type === 'Go to your campus') {
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }
+                      console.log(json[i].type);
+                    }
+                  }
                    this.setState({
                        isLoaded: true,
                        returnPoints: json,
@@ -213,9 +232,7 @@ class Results extends Component {
                    this.setState({isloadingPage: false})
 
                    // Format start and end coordicates in to string for all places redirection
-
                    let tempReturnPoints = this.state.returnPoints;
-                   console.log(tempReturnPoints);
                    let tempNavigate = ''
                    for (let i = 0; i < tempReturnPoints.length; i++) {
                      if (tempReturnPoints[i]){
@@ -226,7 +243,7 @@ class Results extends Component {
                })
 
           //console.log(day2UrlParameter);
-           fetch('http://35.189.58.222/ondaychallenge/' + '/a/'+ day2UrlParameter[0] + '/'+ day2UrlParameter[1] +'/' + day2UrlParameter[2] +'/' +  day2UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
+           fetch('http://35.189.58.222/ondaychallenge2/' +  day2UrlParameter[0] + '/'+ day2UrlParameter[1] +'/' + day2UrlParameter[2] +'/' +  day2UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
                .then(res => res.json())
                .then(json => {
 
@@ -239,14 +256,39 @@ class Results extends Component {
                    }
                   }
 
+                  const alphabet = ['B','C','D','E']
+                  console.log(json);
+                  let counter = 0;
+                  for (let i = 0; i < json.length; i++) {
+                    if (json[i]){
+                      if (json[i].type === 'groceries'){
+                        json[i].type = 'Get groceries at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }else if (json[i].type === 'beddings') {
+                        json[i].type = 'Get beddings at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }else if (json[i].type === 'cooking') {
+                        json[i].type = 'Get cooking equipments at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }else if (json[i].type === 'clothing') {
+                        json[i].type = 'Get clothing at'
+                        json[i].number = alphabet[counter]
+                        counter += 1
+                      }
+                      console.log(json[i].type);
+                    }
+                  }
+
+
                    this.setState({
                        isLoaded: true,
                        returnPointsDay2: json,
                    });
 
-
                    let tempReturnPointsDay2 = this.state.returnPointsDay2;
-                   console.log(tempReturnPointsDay2);
                    if (tempReturnPointsDay2.length>0){
                      this.setState({renderMapDay2: true})
                    }
@@ -260,10 +302,10 @@ class Results extends Component {
                    this.setState({day2Coordinates: tempNavigate})
                });
 
-               fetch('http://35.189.58.222/ondaychallenge/' + '/a/'+ day3UrlParameter[0] + '/'+ day3UrlParameter[1] +'/' + day3UrlParameter[2] +'/' +  day3UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
+               fetch('http://35.189.58.222/ondaychallenge2/' + day3UrlParameter[0] + '/'+ day3UrlParameter[1] +'/' + day3UrlParameter[2] +'/' +  day3UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
                    .then(res => res.json())
                    .then(json => {
-
+                     console.log(json);
                       for (let i = 0; i < json.length; i++) {
                         if (json[i].length === 0){
                           delete json[i]
@@ -272,12 +314,37 @@ class Results extends Component {
                           delete json[i]
                         }
                        }
+                       const alphabet = ['B','C','D','E']
+                       console.log(json);
+                       let counter = 0;
+                       for (let i = 0; i < json.length; i++) {
+                         if (json[i]){
+                           if (json[i].type === 'arts'){
+                             json[i].type = 'Visit art gallery at'
+                             json[i].number = alphabet[counter]
+                             counter += 1
+                           }else if (json[i].type === 'history') {
+                             json[i].type = 'Visit museum at'
+                             json[i].number = alphabet[counter]
+                             counter += 1
+                           }else if (json[i].type === 'attractions') {
+                             json[i].type = 'Visit landmark at'
+                             json[i].number = alphabet[counter]
+                             counter += 1
+                           }else if (json[i].type === 'wildlife') {
+                             json[i].type = 'Visit wildlife at'
+                             json[i].number = alphabet[counter]
+                             counter += 1
+                           }
+                           console.log(json[i].type);
+                         }
+                       }
+
                        this.setState({
                            isLoaded: true,
                            returnPointsDay3: json,
                        });
                        let tempReturnPointsDay3 = this.state.returnPointsDay3;
-                       console.log(tempReturnPointsDay3);
                        if (tempReturnPointsDay3.length>0){
                          this.setState({renderMapDay3: true})
                        }
@@ -289,7 +356,6 @@ class Results extends Component {
                          }
                        }
                        this.setState({day3Coordinates: tempNavigate})
-                       console.log(this.state.day3Coordinates);
                    });
 
        };
@@ -302,7 +368,6 @@ class Results extends Component {
       }
 
       onClick = () => {
-        console.log('clicked');
         this.setState({fireRedirect:true});
       }
 
@@ -348,16 +413,15 @@ class Results extends Component {
                       }
                     </div>
                     <div style={{marginLeft:'-500px',marginTop:'100px'}}>{returnPoints.map(item => (
-                        <li id='locationContainer' key={item.id}>{
-                            item.name
-                              }
+                        <li id='locationContainer' key={item.id}>
+                          <p style={{marginBottom:'0px'}}><span style={{fontWeight:'900'}}>{item.number}</span> - {item.type}</p><p>{item.name}</p>
                               <a id="googleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/place/' + item.latitude+','+item.longitude}>
                               </a>
                         </li>
                         ))}
                   </div>
                   <div style={{marginLeft:'-500px',marginTop:'90px'}}>
-                      <li id='allLocationContainer'> Navigate to All (Day 1)
+                      <li id='allLocationContainer'> Start Day 1 Journery
                         <a id="allGoogleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/dir/' + day1Coordinates}>
                         </a>
                       </li>
@@ -380,16 +444,15 @@ class Results extends Component {
                       }
                     </div>
                     <div style={{marginLeft:'-500px',marginTop:'100px'}}>{returnPointsDay2.map(item => (
-                        <li id='locationContainer' key={item.id}>{
-                            item.name
-                              }
+                        <li id='locationContainer' key={item.id}>
+                          <p style={{marginBottom:'0px'}}><span style={{fontWeight:'900'}}>{item.number}</span> - {item.type}</p><p>{item.name}</p>
                               <a id="googleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/place/' + item.latitude+','+item.longitude}>
                               </a>
                         </li>
                         ))}
                   </div>
                   <div style={{marginLeft:'-500px',marginTop:'90px'}}>
-                      <li id='allLocationContainer'> Navigate to All (Day 2)
+                      <li id='allLocationContainer'>  Start Day 2 Journery
                         <a id="allGoogleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/dir/' + day2Coordinates}>
                         </a>
                       </li>
@@ -412,16 +475,15 @@ class Results extends Component {
                       }
                     </div>
                     <div style={{marginLeft:'-500px',marginTop:'100px'}}>{returnPointsDay3.map(item => (
-                        <li id='locationContainer' key={item.id}>{
-                            item.name
-                              }
+                        <li id='locationContainer' key={item.id}>
+                          <p style={{marginBottom:'0px'}}><span style={{fontWeight:'900'}}>{item.number}</span> - {item.type}</p><p>{item.name}</p>
                               <a id="googleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/place/' + item.latitude+','+item.longitude}>
                               </a>
                         </li>
                         ))}
                   </div>
                   <div style={{marginLeft:'-500px',marginTop:'90px'}}>
-                      <li id='allLocationContainer'> Navigate to All (Day 3)
+                      <li id='allLocationContainer'>  Start Day 3 Journery
                         <a id="allGoogleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/dir/' + day3Coordinates}>
                         </a>
                       </li>

@@ -26,20 +26,22 @@ class LocationForm extends Component{
         <p style={{paddingBottom: '100px', fontSize:'16px', color:'#7F7F7F'}}>This 3-day plan is designed to <span style={{color:'#F08B6F'}}>practically plan for your first 3 days</span> in Melbourne involving activities that will help you transition into this new environment. There will be lists of things to do and an optimal route for you to follow.</p>
       </div>
       <form onSubmit={this.props.regionSearch}>
-
         <div className = 'inputCustomeLocation' >
 
             <Autocomplete
               name="location"
-              style={{width: '90%',border:'none',fontSize:'16px'}}
+              placeholder='Enter a location, eg. 900 Dandenong Road, Caulfield East VIC, Australia'
+              style={{width: '100%',border:'none',fontSize:'16px'}}
               onPlaceSelected={(place) => {
-                this.setState({value: place.geometry});
+                this.setState({value: place.geometry
+                });
               }}
               types={['address']}
               componentRestrictions={{country: "au"}}
-          required/>
+              required/>
 
         </div>
+
         <div id="challengeSearchSection">
           <button className="submit" ><span id='searchButton'>Search</span></button>
         </div>

@@ -22,21 +22,12 @@ const Day1 = props => {
         <div id='processBarTitle'><span>Day 1</span><button type="submit" id="processBarButton">Day 2</button><span>Day 3</span>
         </div>
         <div id='planItem'>
-          {/* <Field
-               name="simCard"
-               id="simCard"
-               component="input"
-               type="checkbox"
-               style={{marginRight:'10px'}}
-             disabled/>   */}
-
-
             <label >Get a local sim card with</label>
             <span id='fieldItemUnderLine'>
             <Field id='fieldItem' name="simCard" component="select" style={{width:'265px'}}>
               <option> ---Choose a Provider --- </option>
               <option value="vodafone">Vodafone</option>
-              <option value="telstra">Telstra</option>
+              <option value="telstra_shop">Telstra</option>
               <option value="optus">Optus</option>
             </Field> </span> <a id="question" target="_blank" rel="noopener noreferrer" href="/usefulinfophone"></a>
             <div>
@@ -64,17 +55,6 @@ const Day1 = props => {
 
 
         <div id='planItem'>
-              {/*   <Field
-              name="bankCard"
-              id="bankCard"
-              component="input"
-              type="checkbox"
-              style={{marginRight:'10px'}}
-              props={{
-              disabled: true,
-            }}
-            disabled/> */}
-
         <label>Get a bank card with</label>
             <span id='fieldItemUnderLine'>
             <Field id='fieldItem' name="bankCard" component="select" style={{width:'300px'}}>
@@ -92,18 +72,6 @@ const Day1 = props => {
         </div>
 
         <div id='planItem'>
-
-          {/* <Field
-              name="goCampus"
-              id="goCampus"
-              component="input"
-              type="checkbox"
-              style={{marginRight:'10px'}}
-              props={{
-              disabled: true,
-            }}
-            disabled/> */}
-
             <label>Go to your University Campus</label>
             <span id='fieldItemUnderLine'>
             <Field id='fieldItem' name="goCampus" component="select" style={{width:'225px'}}>

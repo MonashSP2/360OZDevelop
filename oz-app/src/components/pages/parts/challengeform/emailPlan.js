@@ -29,6 +29,7 @@ class EmailPlan extends Component {
   handleChange = e => {
     this.setState({email: e.target.value})
   }
+
   handleSubmit = e => {
     e.preventDefault()
     console.log("day1",this.state.day1message);
@@ -36,6 +37,7 @@ class EmailPlan extends Component {
     console.log("day3",this.state.day3message);
     this.openModal();
   }
+
   componentWillMount(){
     const day1 = this.props.location.state.day1;
     const day2 = this.props.location.state.day2;
@@ -46,6 +48,11 @@ class EmailPlan extends Component {
                     day2message:day2,
                     day3message:day3,
                     })
+    }
+    for (let i = 0; i< day1.length; i++){
+      if (day1[i]){
+        console.log(day1[i].name);
+      }
     }
   }
 
@@ -70,8 +77,9 @@ class EmailPlan extends Component {
               onClickAway={() => this.closeModal()}
               >
               <div>
-                  <h3 style={{paddingLeft:'40px',paddingTop:'40px', color:'#6C86DB'}}>Email Sent!</h3>
-                  <p style={{paddingLeft:'40px',marginBottom:'30px'}}>Your plan is on the way to your email</p>
+                  <h3 style={{paddingLeft:'40px',paddingTop:'20px', color:'#6C86DB'}}>Email Sent!</h3>
+                  <p style={{paddingLeft:'40px'}}>Your plan is on the way to</p>
+                  <p style={{paddingLeft:'40px',marginBottom:'20px'}}>{this.state.email}</p>
                   <a style={{marginLeft:'40px',padding:'5px 10px 5px 10px', border:'1px solid #6C86DB',borderRadius:'20px',color:'#6C86DB',textDecoration: 'none'}} href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
               </div>
             </Modal>
@@ -85,7 +93,7 @@ class EmailPlan extends Component {
             </div>
           </div>
           <div id='emailTabBackgroud'></div>
-            <Tabs style={{position:'absolute',top:'8%',left:'15%',width:'50vw',height:'60vh'}}
+            <Tabs style={{position:'absolute',top:'15%',left:'15%',width:'50vw',height:'60vh'}}
               tabBarGutter='200px' tabBarStyle={{border:'none'}} defaultActiveKey="1"  onChange={callback}>
             <TabPane tab="Day 1" key="1">
             <div style={{paddingTop:'60px',paddingLeft:'100px'}}>

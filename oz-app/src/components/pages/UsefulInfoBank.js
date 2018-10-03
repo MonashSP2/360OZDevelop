@@ -1,15 +1,12 @@
 import React from 'react';
 import './UsefulInfo.css';
+import UsefulllinksButtons from './Usefullinksbuttons';
 
-const UsefulInfoPhone =()=>{
+
+const UsefulInfoBank =()=>{
     return (
       <div>
-      <div className="beforeContainer">
-          <div className="beforeSection">
-            <span className="beforeTitle">
-              International Student Banking</span>
-          </div>
-      </div>
+        <UsefulllinksButtons />
         <div id="infoContainer">
         <h3>
           International Student Banking
@@ -31,4 +28,4 @@ const UsefulInfoPhone =()=>{
       </div>
     )
 }
-export default UsefulInfoPhone;
+export default UsefulInfoBank;

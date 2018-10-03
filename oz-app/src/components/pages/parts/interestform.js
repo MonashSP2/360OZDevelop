@@ -23,7 +23,7 @@ class InterestForm extends Component{
           <input
             id = 'inputInterest'
             size="large"
-            placeholder="Search your interest"
+            placeholder="Search your interest, eg. park"
             name="interest"
             value={this.state.value}
             onChange={this.handleChange} required/>

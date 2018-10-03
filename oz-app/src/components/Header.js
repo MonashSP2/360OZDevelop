@@ -21,12 +21,12 @@ class Header extends Component{
 
   render() {
     let id = ''
-    console.log(this.state.isActive);
+    //console.log(this.state.isActive);
     if (this.state.isActive === true) {
       id += 'switchLanguage';
-      console.log(id);
+      //console.log(id);
     }else{
-      console.log(this.state.isActive);
+      //console.log(this.state.isActive);
     }
 
     return (
@@ -41,9 +41,8 @@ class Header extends Component{
         <nav className="navBar">
           <Link id='logo_link' to='/'><img src={logo} alt="logo" height="40" id='logo_img'></img></Link>
         </nav>
-        {/* <Switch id={id} style={{position:"absolute",top:"6%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked /> */}      
+        {/* <Switch id={id} style={{position:"absolute",top:"6%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked /> */}
         <div className='navWrapper'>
-
           <ul>
             <li><Link to='/'>HOME</Link></li>
             <li><Link to='/searchcampus'>BEFORE</Link></li>

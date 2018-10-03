@@ -49,11 +49,11 @@
   color: '#5B5B5B';
 }
 .inputCustome{
-  width: 90%;
+  width: 95%;
   border-bottom:2px solid #fff;
 }
 #inputInterest{
-
+  width:270px;
   background-color:rgba(0, 0, 0, 0);
   border-style: hidden;
   color: white;

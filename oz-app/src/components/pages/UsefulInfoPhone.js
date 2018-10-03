@@ -1,15 +1,12 @@
 import React from 'react';
 import './UsefulInfo.css';
+import UsefulllinksButtons from './Usefullinksbuttons';
 
 const UsefulInfoPhone =()=>{
     return (
       <div>
-      <div className="beforeContainer">
-          <div className="beforeSection">
-            <span className="beforeTitle">
-              Australian Mobile Carriers</span>
-          </div>
-      </div>
+        <UsefulllinksButtons />
+
         <div id="infoContainer">
         <h3>
           Australian Mobile Carriers

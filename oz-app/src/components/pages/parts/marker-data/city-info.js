@@ -7,15 +7,15 @@ export default class CityInfo extends PureComponent {
     console.log(info);
     var displayName = ''
     if (!info.group){
-      displayName = `\n\n${info.name}`;
+      displayName = `\n\nName: ${info.name} | \n\nAddress: ${info.address} | \n\nRating: ${info.rating}`;
 
     }else{
-      displayName = `\n\n${info.name}\n\n${info.group}\n\n${info.address}`;
+      displayName = `\n\nName: ${info.name} | \n\nAddress: ${info.address}`;
     }
 
     return (
       <div>
-        <div style={{width:'150px', opacity:'0.8'}}>
+        <div style={{width:'200px', opacity:'0.8',fontSize:'12px'}}>
           {displayName}
         </div>
       </div>

@@ -61,7 +61,7 @@ export default withAuth(class Home extends Component {
       beforeDescId = 'beforeDescLanguage';
       afterDescId = 'afterDescLanguage';
     }else{
-      console.log(this.state.isActive);
+      //console.log(this.state.isActive);
     }
 
 
@@ -74,8 +74,12 @@ export default withAuth(class Home extends Component {
     return (
       <div>
         <div style={{float:'right', margin:'20px'}}>
-          <Switch style={{position:"absolute",top:"3.5%",right:"15%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked />
-          {button}
+
+          <Switch style={{position:"absolute",top:"3.5%",right:"25%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked />
+          <Link id="usefulLink" to='/usefullinkes'>Useful Links</Link>
+
+
+      {button}
         </div>
 
         <div className="button-container">
@@ -101,7 +105,7 @@ export default withAuth(class Home extends Component {
         <div className="beforeExplanation" style={{marginTop:'210px'}}>
           <div>
 
-          <p id='homeTitle'>3 Day Plan</p>
+          <p id='homeTitle'>3-Day Plan</p>
           </div>
           <div id={afterDescId}>
           <p >Exciting 3-day plan to arrive, revive and immerse in Melbourne</p>
