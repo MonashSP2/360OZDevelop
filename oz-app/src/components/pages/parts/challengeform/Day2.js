@@ -19,7 +19,10 @@ const Day2 = props => {
       </div>
   <form id="challengeForm" onSubmit={handleSubmit}>
     <Progress id='processBar' percent={66.6} strokeWidth={40} showInfo={false} />
-      <div id='processBarTitle'><button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 1</button><span>Day 2</span><span>Day 3</span>
+      <div id='processBarTitle'>
+        <button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 1</button>
+        <span>Day 2</span>
+        <button type="submit" id="processBarButton">Day 3</button>
     </div>
       <div id='planItem'>
         <Field

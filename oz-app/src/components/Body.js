@@ -32,34 +32,27 @@ class Body extends Component {
   render() {
     return (
       <main>
-        <Security issuer='https://dev-801046.oktapreview.com/oauth2/default'
-                  client_id='0oagb60a0cBf8bi0F0h7'
-                  redirect_uri={window.location.origin + '/implicit/callback'}
-                  onAuthRequired={onAuthRequired} >
         <Switch>
-          <SecureRoute exact path='/' component={Home}/>
-          <SecureRoute path='/before' component={Before}/>
-          <SecureRoute path='/searchcampus' component={SearchCampus}/>
-          <SecureRoute path='/searchcaulfield' component={SearchCaulfield}/>
-          <SecureRoute path='/searchclayton' component={SearchClayton}/>
-          <SecureRoute path='/searchparkville' component={SearchParkville}/>
-          <SecureRoute path='/searchpeninsula' component={SearchPeninsula}/>
-          <SecureRoute exact path='/after' component={After}/>
-          <SecureRoute exact path='/usefullinkes' component={UsefulLinks}/>
-          <SecureRoute exact path='/usefulinfophone' component={UsefulInfoPhone}/>
-          <SecureRoute exact path='/usefulinfobank' component={UsefulInfoBank}/>
-          <SecureRoute exact path='/usefulinfocampus' component={UsefulInfoCampus}/>
-          <SecureRoute exact path='/usefulinfotransportation' component={UsefulInfoTransportation}/>
-          <SecureRoute exact path='/usefulinfojob' component={UsefulInfoJob}/>
-          <SecureRoute exact path='/usefulinfoohsc' component={UsefulInfoOhsc}/>
-          <SecureRoute exact path='/locationrequest' component={LocationRequest}/>
-          <SecureRoute exact path='/locationrequest/:locationpara' component={PlanTemplate}/>
-          <SecureRoute exact path='/locationrequest/:locationpara/challengesubmission' component={Results}/>
-          <SecureRoute exact path='/email' component={EmailPlan}/>
-            <Route path='/login' render={() => <Login baseUrl='https://dev-801046.oktapreview.com' />} />
-            <Route path='/implicit/callback' component={ImplicitCallback} />
+          <Route exact path='/' component={Home}/>
+          <Route path='/before' component={Before}/>
+          <Route path='/searchcampus' component={SearchCampus}/>
+          <Route path='/searchcaulfield' component={SearchCaulfield}/>
+          <Route path='/searchclayton' component={SearchClayton}/>
+          <Route path='/searchparkville' component={SearchParkville}/>
+          <Route path='/searchpeninsula' component={SearchPeninsula}/>
+          <Route exact path='/after' component={After}/>
+          <Route exact path='/usefullinkes' component={UsefulLinks}/>
+          <Route exact path='/usefulinfophone' component={UsefulInfoPhone}/>
+          <Route exact path='/usefulinfobank' component={UsefulInfoBank}/>
+          <Route exact path='/usefulinfocampus' component={UsefulInfoCampus}/>
+          <Route exact path='/usefulinfotransportation' component={UsefulInfoTransportation}/>
+          <Route exact path='/usefulinfojob' component={UsefulInfoJob}/>
+          <Route exact path='/usefulinfoohsc' component={UsefulInfoOhsc}/>
+          <Route exact path='/locationrequest' component={LocationRequest}/>
+          <Route exact path='/locationrequest/:locationpara' component={PlanTemplate}/>
+          <Route exact path='/locationrequest/:locationpara/challengesubmission' component={Results}/>
+          <Route exact path='/email' component={EmailPlan}/>
       </Switch>
-      </Security>
 
       </main>
     )

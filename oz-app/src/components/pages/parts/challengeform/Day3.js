@@ -13,13 +13,16 @@ const Day3 = props => {
               <span className="beforeTitle">
                 Immerse Page</span>
             </div>
-            <div id="dayDetail">
+            <div id="dayDetail" style={{width:'70%'}}>
             Experience new checklist Australian Culture according to your preferences
           </div>
         </div>
   <form  id="challengeForm" onSubmit={handleSubmit}>
     <Progress id='processBar' percent={99.9} strokeWidth={40} showInfo={false} />
-      <div id='processBarTitle'><button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 1</button><span>Day 2</span><span>Day 3</span>
+      <div id='processBarTitle'>
+        <button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 1</button>
+        <button style={{marginLeft:'10px'}} type="submit" id="processBarButton" onClick={previousPage}>Day 2</button>
+        <span>Day 3</span>
     </div>
         <div id='planItem'>
         <Field

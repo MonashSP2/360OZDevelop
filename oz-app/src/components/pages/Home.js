@@ -8,16 +8,13 @@ import { Button } from 'antd';
 import { Switch } from 'antd';
 
 
-export default withAuth(class Home extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: null,
       isActive: false,
      };
-    this.checkAuthentication = this.checkAuthentication.bind(this);
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
+
   }
 
   onChange = (checked) => {
@@ -26,29 +23,6 @@ export default withAuth(class Home extends Component {
     }else{
       this.setState({isActive: false})
     }
-  }
-
-  async checkAuthentication() {
-    const authenticated = await this.props.auth.isAuthenticated();
-    if (authenticated !== this.state.authenticated) {
-      this.setState({ authenticated });
-    }
-  }
-
-  async componentDidMount() {
-    this.checkAuthentication();
-  }
-
-  async componentDidUpdate() {
-    this.checkAuthentication();
-  }
-
-  async login() {
-    this.props.auth.login('/');
-  }
-
-  async logout() {
-    this.props.auth.logout('/');
   }
 
   render() {
@@ -65,21 +39,18 @@ export default withAuth(class Home extends Component {
     }
 
 
-    if (this.state.authenticated === null) return null;
 
-    const button = this.state.authenticated ?
-      <Button onClick={this.logout}>Logout</Button> :
-      <Button onClick={this.login}>Login</Button>;
+
 
     return (
       <div>
         <div style={{float:'right', margin:'20px'}}>
 
-          <Switch style={{position:"absolute",top:"3.5%",right:"25%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked />
+          <Switch style={{position:"absolute",top:"3.5%",right:"8%",marginLeft:"10px",backgroundColor:"#FF8567"}} checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked />
           <Link id="usefulLink" to='/usefullinkes'>Useful Links</Link>
 
 
-      {button}
+
         </div>
 
         <div className="button-container">
@@ -115,4 +86,4 @@ export default withAuth(class Home extends Component {
 
     );
   }
-});
+};
