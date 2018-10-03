@@ -1,0 +1,41 @@
+#emailSubmit{
+  margin-top: 3px;
+  margin-left: 3px;
+  height: 50px;
+  width: 400px;
+  border-radius: 50px;
+  float: left;
+}
+#emailSubmitButton{
+  margin-top: 3px;
+  margin-left: 3px;
+  height: 50px;
+  width: 200px;
+  border-radius: 50px;
+  float: left;
+  background: none;
+  color: white;
+  border:none;
+}
+#emailForm{
+  position: absolute;
+  bottom: 15%;
+  left: 16%;
+  height: 56px;
+  width: 610px;
+  border-radius: 50px;
+  background: linear-gradient(45deg, rgba(82,130,255,1) 0%, rgba(111,134,214,1) 100%);
+}
+#messageItem{
+  padding: 20px;
+  font-size: 16px;
+}
+#emailTabBackgroud{
+  height: 46px;
+  width: 800px;
+  border: 3px solid #5983F6;
+  border-radius: 50px;
+  position: absolute;
+  top: 15%;
+  left: 6%;
+}

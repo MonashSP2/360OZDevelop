@@ -1,0 +1,97 @@
+.dropItem{
+  margin-top: 70px;
+  color: white;
+  border-bottom:2px solid #5B5B5B;
+}
+#submitSection{
+  margin-top: 30px;
+  margin-left: 80px;
+}
+#submitButtonSection{
+  position: absolute;
+  top: 45%;
+  right: -55%;
+}
+.submit{
+  width: 180px;
+  height: 60px;
+  text-align: left;
+  padding-left: 20px;
+  border: 0px solid #444;
+  border-width: 0px 0px 0px 0px;
+  padding: 10px 30px 10px 30px;
+  box-shadow: 0px 1px 15px  rgba(0%,0%,0%,0.3);
+  font-weight: 500;
+  font-size: 16px;
+  color: #5D5D5D;
+}
+.submit::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  margin-left: -30px;
+  margin-top: -16px;
+  width: 10px;
+  height: 60px;
+  background-color: #FF8567;
+}
+#searchButton{
+  font-weight: 500;
+  font-size: 20px;
+  color: #5D5D5D;
+}
+
+#dropCustome div div{
+  background-color:rgba(0, 0, 0, 0);
+  border-style: hidden;
+}
+#dropCustome div div div div{
+  color: '#5B5B5B';
+}
+.inputCustome{
+  width: 95%;
+  border-bottom:2px solid #fff;
+}
+#inputInterest{
+  width:270px;
+  background-color:rgba(0, 0, 0, 0);
+  border-style: hidden;
+  color: white;
+  font-size: 18px;
+}
+
+#inputInterest::placeholder {
+   color: white; }
+
+#inputLocation{
+ background-color:rgba(0, 0, 0, 0);
+ border-style: hidden;
+ color: #5D5D5D;
+ font-size: 18px;
+}
+
+#inputLocation::placeholder {
+  color: #5D5D5D;
+}
+
+.inputCustomeLocation{
+  margin-right: 55%;
+  border-bottom:2px solid #5D5D5D;
+  }
+#challengeSearchSection{
+  position: absolute;
+  top: 85%;
+  right: 10%;
+}
+#searchIcon{
+  float:right;
+  background-color: rgba(0, 0, 0, 0.0);
+  border: none;
+  background-image:url('../../image/search-solid.svg');
+  margin-top: 6px;
+  margin-right: 6px;
+  height:18px;
+  width:18px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

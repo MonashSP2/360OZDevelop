@@ -1,0 +1,47 @@
+#mapBox{
+  padding-top: 105px;
+  margin-left: 30px;
+   width: 500px;
+   height: 500px;
+   position: absolute;
+}
+
+.mapboxgl-map{
+  height: 20px;
+  width: 20px;
+}
+#colorlegendHigh{
+  height: 20px;
+  width: 20px;
+  background: #4877DE;
+}
+#colorlegendMedium{
+  height: 20px;
+  width: 20px;
+  background: #FF8567;
+  margin-top: 10px;
+}
+#colorlegendLow{
+  height: 20px;
+  width: 20px;
+  background: red;
+  margin-top: 10px;
+}
+#switchButton{
+  background: none;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  height: 30px;
+  margin: 4px;
+}
+#switchButton:hover{
+  background: rgba(0,0,0,0.3);
+  border-radius: 50px;
+  color: white;
+  height: 30px;
+margin: 4px;
+}
+#legendexplain{
+  margin-left: 30px;
+}
