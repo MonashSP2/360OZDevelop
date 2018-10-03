@@ -19,7 +19,10 @@ const Day1 = props => {
       </div>
       <form id="challengeForm" onSubmit={handleSubmit}>
         <Progress id='processBar' percent={33.3} strokeWidth={40} showInfo={false} />
-        <div id='processBarTitle'><span>Day 1</span><button type="submit" id="processBarButton">Day 2</button><span>Day 3</span>
+        <div id='processBarTitle'>
+            <span>Day 1</span>
+            <button type="submit" id="processBarButton">Day 2</button>
+            <button type="submit" id="processBarButton">Day 3</button>
         </div>
         <div id='planItem'>
             <label >Get a local sim card with</label>

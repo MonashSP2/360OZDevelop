@@ -120,21 +120,21 @@ class Results extends Component {
           else if (key === 'goCampus'){
                 day1UrlParameter.push('university'+'&'+resultArrayJson[key])}
           else if (key === 'groceries'){
-              day2UrlParameter.push('groceries'+'&'+resultArrayJson[key])}
+              day2UrlParameter.push('store|supermarket'+'&'+resultArrayJson[key])}
           else if (key === 'beddings'){
-              day2UrlParameter.push('beddings'+'&'+resultArrayJson[key])}
+              day2UrlParameter.push('store|home_goods_store|department_store'+'&'+resultArrayJson[key])}
           else if (key === 'cooking'){
-              day2UrlParameter.push('cooking'+'&'+resultArrayJson[key])}
+              day2UrlParameter.push('store|home_goods_store'+'&'+resultArrayJson[key])}
           else if (key === 'clothing'){
-              day2UrlParameter.push('clothing'+'&'+resultArrayJson[key])}
+              day2UrlParameter.push('clothing_store'+'&'+resultArrayJson[key])}
           else if (key === 'arts'){
-              day3UrlParameter.push('arts'+'&'+resultArrayJson[key])}
+              day3UrlParameter.push('arts')}
           else if (key === 'history'){
-              day3UrlParameter.push('history'+'&'+resultArrayJson[key])}
+              day3UrlParameter.push('history')}
           else if (key === 'attractions'){
-              day3UrlParameter.push('attractions'+'&'+resultArrayJson[key])}
+              day3UrlParameter.push('attraction')}
           else if (key === 'wildlife'){
-              day3UrlParameter.push('wildlife'+'&'+resultArrayJson[key])}
+              day3UrlParameter.push('wildlife')}
           }
            day1UrlParameter.push('a':'a')
            day1UrlParameter.push('a':'a')
@@ -261,20 +261,20 @@ console.log(day1UrlParameter);
                   let counter = 0;
                   for (let i = 0; i < json.length; i++) {
                     if (json[i]){
-                      if (json[i].type === 'groceries'){
-                        json[i].type = 'Get groceries at'
+                      if (json[i].type === 'store|supermarket'){
+                        json[i].type = ' Buy groceries at'
                         json[i].number = alphabet[counter]
                         counter += 1
-                      }else if (json[i].type === 'beddings') {
-                        json[i].type = 'Get beddings at'
+                      }else if (json[i].type === 'store|home_goods_store|department_store') {
+                        json[i].type = 'Shop for beddings at'
                         json[i].number = alphabet[counter]
                         counter += 1
-                      }else if (json[i].type === 'cooking') {
-                        json[i].type = 'Get cooking equipments at'
+                      }else if (json[i].type === 'store|home_goods_store') {
+                        json[i].type = 'Buy cooking needs at'
                         json[i].number = alphabet[counter]
                         counter += 1
-                      }else if (json[i].type === 'clothing') {
-                        json[i].type = 'Get clothing at'
+                      }else if (json[i].type === 'clothing_store') {
+                        json[i].type = 'Shop for clothing at'
                         json[i].number = alphabet[counter]
                         counter += 1
                       }
@@ -302,7 +302,9 @@ console.log(day1UrlParameter);
                    this.setState({day2Coordinates: tempNavigate})
                });
 
-               fetch('http://35.189.58.222/ondaychallenge2/' + day3UrlParameter[0] + '/'+ day3UrlParameter[1] +'/' + day3UrlParameter[2] +'/' +  day3UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
+               http://35.189.58.222/day3challenge/arts/history/attracton/a/-37.884/145.0266
+
+               fetch('http://35.189.58.222/day3challenge/' + day3UrlParameter[0] + '/'+ day3UrlParameter[1] +'/' + day3UrlParameter[2] +'/' +  day3UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
                    .then(res => res.json())
                    .then(json => {
                      console.log(json);
@@ -319,19 +321,20 @@ console.log(day1UrlParameter);
                        let counter = 0;
                        for (let i = 0; i < json.length; i++) {
                          if (json[i]){
-                           if (json[i].type === 'arts'){
+                           console.log(json[i].types);
+                           if (json[i].types === 'art_gallery|point_of_interest|establishment)'){
                              json[i].type = 'Visit art gallery at'
                              json[i].number = alphabet[counter]
                              counter += 1
-                           }else if (json[i].type === 'history') {
+                           }else if (json[i].types === 'museum|point_of_interest|establishment') {
                              json[i].type = 'Visit museum at'
                              json[i].number = alphabet[counter]
                              counter += 1
-                           }else if (json[i].type === 'attractions') {
+                           }else if (json[i].types === 'point_of_interest|establishment') {
                              json[i].type = 'Visit landmark at'
                              json[i].number = alphabet[counter]
                              counter += 1
-                           }else if (json[i].type === 'wildlife') {
+                           }else if (json[i].types === 'zoo|point_of_interest|establishment') {
                              json[i].type = 'Visit wildlife at'
                              json[i].number = alphabet[counter]
                              counter += 1

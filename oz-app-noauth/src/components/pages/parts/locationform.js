@@ -30,7 +30,7 @@ class LocationForm extends Component{
 
             <Autocomplete
               name="location"
-              placeholder='Enter a location, eg. 900 Dandenong Road, Caulfield East VIC, Australia'
+              placeholder='Enter a location'
               style={{width: '100%',border:'none',fontSize:'16px'}}
               onPlaceSelected={(place) => {
                 this.setState({value: place.geometry
@@ -44,6 +44,10 @@ class LocationForm extends Component{
 
         <div id="challengeSearchSection">
           <button className="submit" ><span id='searchButton'>Search</span></button>
+        </div>
+        <div style={{position:'absolute',bottom:'-22%'}}>
+          <p style={{color:'grey',marginBottom:'0px'}}>Eg. 900 Dandenong Road, </p>
+          <p  style={{color:'grey'}}>Caulfield East VIC, Australia</p>
         </div>
 
     	</form>
