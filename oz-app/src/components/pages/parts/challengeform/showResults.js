@@ -262,7 +262,7 @@ console.log(day1UrlParameter);
                   for (let i = 0; i < json.length; i++) {
                     if (json[i]){
                       if (json[i].type === 'store|supermarket'){
-                        json[i].type = ' Buy groceries at'
+                        json[i].type = 'Buy groceries at'
                         json[i].number = alphabet[counter]
                         counter += 1
                       }else if (json[i].type === 'store|home_goods_store|department_store') {
@@ -322,19 +322,19 @@ console.log(day1UrlParameter);
                        for (let i = 0; i < json.length; i++) {
                          if (json[i]){
                            console.log(json[i].types);
-                           if (json[i].types === 'art_gallery|point_of_interest|establishment)'){
+                           if (json[i].types === 'Visit art gallery at'){
                              json[i].type = 'Visit art gallery at'
                              json[i].number = alphabet[counter]
                              counter += 1
-                           }else if (json[i].types === 'museum|point_of_interest|establishment') {
+                           }else if (json[i].types === 'Visit museum at') {
                              json[i].type = 'Visit museum at'
                              json[i].number = alphabet[counter]
                              counter += 1
-                           }else if (json[i].types === 'point_of_interest|establishment') {
+                           }else if (json[i].types === 'Visit landmark at') {
                              json[i].type = 'Visit landmark at'
                              json[i].number = alphabet[counter]
                              counter += 1
-                           }else if (json[i].types === 'zoo|point_of_interest|establishment') {
+                           }else if (json[i].types === 'Visit wildlife at') {
                              json[i].type = 'Visit wildlife at'
                              json[i].number = alphabet[counter]
                              counter += 1
@@ -478,7 +478,7 @@ console.log(day1UrlParameter);
                       }
                     </div>
                     <div style={{marginLeft:'-500px',marginTop:'100px'}}>{returnPointsDay3.map(item => (
-                        <li id='locationContainer' key={item.id}>
+                        <li id='locationContainer' key={item._id}>
                           <p style={{marginBottom:'0px'}}><span style={{fontWeight:'900'}}>{item.number}</span> - {item.type}</p><p>{item.name}</p>
                               <a id="googleExternal" target="_blank" rel="noopener noreferrer" href={'https://www.google.com/maps/place/' + item.latitude+','+item.longitude}>
                               </a>

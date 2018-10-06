@@ -12,7 +12,7 @@ const UsefulInfoPhone =()=>{
           Jobs
         </h3>
         <p>
-            If you need to find jobs while you’re studying, there a large number of job search and career development resources in Australia. You can look for jobs across different industries of your preference in which you can apply for online.</p>
+            If you need to find jobs while you’re studying, there are a large number of job search and career development resources in Australia. You can look for jobs across different industries of your preference in which you can apply for online.</p>
           <p>Below are some of the top job and career sites you can visit:</p>
           <ul id="infoLink">
           <li><a href="https://www.seek.com.au/">Seek</a></li>

@@ -11,7 +11,7 @@ const Day1 = props => {
       <div className="beforeContainer">
           <div className="beforeSection">
             <span className="beforeTitle">
-              Arrive Page</span>
+              Set up the basics</span>
           </div>
           <div id="dayDetail">
           Set up the basics as soon as you arrive in Melbourne
@@ -31,7 +31,7 @@ const Day1 = props => {
               <option> ---Choose a Provider --- </option>
               <option value="vodafone">Vodafone</option>
               <option value="telstra_shop">Telstra</option>
-              <option value="optus">Optus</option>
+              <option value="yesoptus">Optus</option>
             </Field> </span> <a id="question" target="_blank" rel="noopener noreferrer" href="/usefulinfophone"></a>
             <div>
               <span style={{float:'left',color:'#939393',marginTop:'6px',marginLeft:'26px'}}>
@@ -58,11 +58,12 @@ const Day1 = props => {
 
 
         <div id='planItem'>
-        <label>Get a bank card with</label>
+        <label>Open a bank card with</label>
             <span id='fieldItemUnderLine'>
             <Field id='fieldItem' name="bankCard" component="select" style={{width:'300px'}}>
               <option> ---Choose a Bank --- </option>
               <option value="commonwealth">Commonwealth Bank</option>
+              <option value="westpac">Westpac Bank</option>
               <option value="anz">ANZ Bank</option>
               <option value="nab">NAB Bank</option>
             </Field></span> <a id="question" target="_blank" rel="noopener noreferrer" href="/usefulinfobank"></a>

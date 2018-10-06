@@ -11,7 +11,7 @@ const Day2 = props => {
       <div className="beforeContainer">
           <div className="beforeSection">
             <span className="beforeTitle">
-              Revive Page</span>
+              Shop for the essentials</span>
           </div>
           <div id="dayDetail">
           Shop for things you need to have a comfortable life in Australia
