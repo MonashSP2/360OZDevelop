@@ -3,7 +3,7 @@
   left: -43%;
   top: 15%;
 }
-.beforeSection{
+.beforeSectionWhite{
   background-color: white;
   width: 413px;
   height: 80px;
@@ -16,7 +16,7 @@
   box-shadow: 0px 1px 15px  rgba(0%,0%,0%,0.3);
   font-size: 20px;
 }
-.beforeSection::before {
+.beforeSectionWhite::before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -34,7 +34,7 @@
   .droplist{
     margin-left: 0px;
   }
-  .beforeSection{
+  .beforeSectionWhite{
     width: 300px;
   }
 }

@@ -49,8 +49,8 @@ class UsefulInfoButton extends Component{
     return (
       <div>
       <div className="beforeContainer">
-          <div className="beforeSection" style={{marginBottom:'20px'}}>
-            <button style={{border:'none', background:'none'}} onClick={this.toBank}>
+          <div className="usefulSection" style={{marginBottom:'20px'}}>
+            <button style={{width:'250px',paddingLeft:'0px',paddingRight:'0px',border:'none', background:'none'}} onClick={this.toBank}>
               <span className="beforeTitle">
                 International Student Banking
                 {toBank && (
@@ -58,8 +58,8 @@ class UsefulInfoButton extends Component{
               </span>
             </button>
           </div>
-          <div className="beforeSection" style={{marginBottom:'20px'}}>
-            <button style={{border:'none', background:'none'}} onClick={this.toCampus}>
+          <div className="usefulSection" style={{marginBottom:'20px'}}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none',paddingRight:'0px', background:'none'}} onClick={this.toCampus}>
               <span className="beforeTitle">
                 Housing On and Off Campus
                 {toCampus && (
@@ -67,8 +67,8 @@ class UsefulInfoButton extends Component{
               </span>
             </button>
           </div>
-          <div className="beforeSection" style={{marginBottom:'20px'}}>
-            <button style={{border:'none', background:'none'}} onClick={this.toTransportation}>
+          <div className="usefulSection" style={{marginBottom:'20px'}}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none',paddingRight:'0px', background:'none'}} onClick={this.toTransportation}>
               <span className="beforeTitle">
                 Public Transportation
                 {toTransportation && (
@@ -76,8 +76,8 @@ class UsefulInfoButton extends Component{
               </span>
             </button>
           </div>
-          <div className="beforeSection" style={{marginBottom:'20px'}}>
-            <button style={{border:'none', background:'none'}} onClick={this.toPhone}>
+          <div className="usefulSection" style={{marginBottom:'20px'}}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none', paddingRight:'0px',background:'none'}} onClick={this.toPhone}>
               <span className="beforeTitle">
                 Australian Mobile Carriers
                 {toPhone && (
@@ -85,8 +85,8 @@ class UsefulInfoButton extends Component{
               </span>
             </button>
           </div>
-          <div className="beforeSection" style={{marginBottom:'20px'}}>
-            <button style={{border:'none', background:'none'}} onClick={this.toJob}>
+          <div className="usefulSection" style={{marginBottom:'20px'}}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none', paddingRight:'0px',background:'none'}} onClick={this.toJob}>
               <span className="beforeTitle">
                 Jobs
                 {toJob && (
@@ -94,8 +94,8 @@ class UsefulInfoButton extends Component{
               </span>
             </button>
           </div>
-          <div className="beforeSection" style={{marginBottom:'20px'}}>
-            <button style={{border:'none', background:'none'}} onClick={this.toOhsc}>
+          <div className="usefulSection" style={{marginBottom:'20px'}}>
+            <button style={{width:'260px',paddingLeft:'0px',border:'none',paddingRight:'0px', background:'none'}} onClick={this.toOhsc}>
               <span className="beforeTitle">
                 Overseas Student Health Cover
                 {toOhsc && (

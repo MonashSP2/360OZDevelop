@@ -92,7 +92,7 @@ class EmailPlan extends Component {
               </div>
             </Modal>
           <div className="beforeContainer">
-              <div className="beforeSection">
+              <div className="beforeSectionWhite">
                 <span className="beforeTitle">
                   Save your Plan</span>
               </div>

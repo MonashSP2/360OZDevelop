@@ -19,7 +19,7 @@ class Parkville extends Component{
     return (
       <div>
         <div className="beforeContainer">
-          <div className="beforeSection">
+          <div className="beforeSectionWhite">
             <span className="beforeTitle">Explore around Parkville Campus</span>
             </div>
             <div className="droplist">

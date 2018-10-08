@@ -21,7 +21,7 @@ class Peninsula extends Component{
     return (
       <div>
         <div className="beforeContainer">
-          <div className="beforeSection">
+          <div className="beforeSectionWhite">
             <span className="beforeTitle">Explore around Peninsula Campus</span>
             </div>
             <div className="droplist">

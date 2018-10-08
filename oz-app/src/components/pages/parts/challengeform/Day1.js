@@ -9,7 +9,7 @@ const Day1 = props => {
   return (
 <div>
       <div className="beforeContainer">
-          <div className="beforeSection">
+          <div className="beforeSectionWhite">
             <span className="beforeTitle">
               Set up the basics</span>
           </div>

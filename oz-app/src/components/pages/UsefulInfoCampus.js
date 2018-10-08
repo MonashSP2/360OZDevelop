@@ -7,7 +7,7 @@ const UsefulInfoCampus =()=>{
       <div>
         <UsefulllinksButtons />
 
-        <div id="infoContainer">
+        <div id="campusinfoContainer">
         <h3>
           Housing On and Off Campus
         </h3>

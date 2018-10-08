@@ -7,7 +7,7 @@ const UsefulInfoPhone =()=>{
     return (
       <div>
         <div className="beforeContainer">
-            <div className="beforeSection">
+            <div className="beforeSectionWhite">
               <span className="beforeTitle">
                 About US</span>
             </div>

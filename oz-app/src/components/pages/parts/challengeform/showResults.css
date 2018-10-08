@@ -92,16 +92,16 @@
 }
 @media screen and (max-width: 1024px) {
   #locationContainer{
-    width: 270px;
+    width: 300px;
   }
   #googleExternal{
-    margin-left: 200px;
+    margin-left: 230px;
   }
   #allLocationContainer{
-    width: 270px;
+    width: 300px;
   }
   #allGoogleExternal{
-    margin-left: 200px;
+    margin-left: 230px;
   }
   #tabBackgroud{
     width: 500px;

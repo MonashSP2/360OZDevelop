@@ -20,7 +20,7 @@ class Clayton extends Component{
     return (
       <div>
         <div className="beforeContainer">
-          <div className="beforeSection">
+          <div className="beforeSectionWhite">
             <span className="beforeTitle">
               Explore around Clayton Campus</span>
             </div>

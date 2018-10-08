@@ -29,7 +29,7 @@ class FormCampus extends Component{
 
         </div>
         <div id="submitSection">
-          <button className="submit" id="submitButtonSection"><span id='searchButton'>Search</span></button>
+          <button style={{backgroundColor:'white'}} className="submit" id="submitButtonSection"><span id='searchButton'>Search</span></button>
         </div>
     	</form>
       </div>

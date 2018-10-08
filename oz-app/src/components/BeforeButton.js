@@ -4,7 +4,7 @@ import './Button.css';
 const Before = () =>{
     return (
       <div className="buttonmargin">
-        <button type="button" className="beforeButton" ><span id='homeButton'>Before you arrive</span></button>
+        <button type="button" style={{backgroundColor:'white'}} className="beforeButton" ><span id='homeButton'>Before you arrive</span></button>
       </div>
     )
 }

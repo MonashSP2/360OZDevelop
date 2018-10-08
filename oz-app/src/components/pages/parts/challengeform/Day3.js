@@ -9,7 +9,7 @@ const Day3 = props => {
   return (
     <div>
         <div className="beforeContainer">
-            <div className="beforeSection">
+            <div className="beforeSectionWhite">
               <span className="beforeTitle">
                 Explore Melbourne</span>
             </div>

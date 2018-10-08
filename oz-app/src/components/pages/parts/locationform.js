@@ -43,7 +43,7 @@ class LocationForm extends Component{
         </div>
 
         <div id="challengeSearchSection">
-          <button className="locationsubmit" ><span id='searchButton' style={{marginTop:'0px'}}>Start Planning</span></button>
+          <button className="locationsubmit" style={{backgroundColor:'white'}} ><span id='searchButton' style={{marginTop:'0px'}}>Start Planning</span></button>
         </div>
         <div style={{position:'absolute',bottom:'-22%'}}>
           <p style={{color:'grey',marginBottom:'0px'}}>Eg. 900 Dandenong Road, </p>
