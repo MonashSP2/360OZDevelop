@@ -136,5 +136,9 @@
   color: white;
   width: 80%;
 }
-
+@media screen and (max-width: 1024px) {
+  #dayDetail{
+    width: 300px;
+  }
+}
 a:hover:after {text-decoration:none;}

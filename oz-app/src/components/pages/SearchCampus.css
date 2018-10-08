@@ -41,3 +41,12 @@
   top:30%;
   left: 20%;
 }
+@media screen and (max-width: 1024px) {
+  .beforeDesc{
+    left: 20%;
+  }
+  .beforeSection{
+    width: 300px;
+    padding: 10px 0px 10px 20px;
+  }
+}

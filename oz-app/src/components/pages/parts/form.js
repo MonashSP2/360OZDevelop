@@ -28,10 +28,8 @@ class FormCampus extends Component{
             </Select>
 
         </div>
-
         <div id="submitSection">
           <button className="submit" id="submitButtonSection"><span id='searchButton'>Search</span></button>
-
         </div>
     	</form>
       </div>

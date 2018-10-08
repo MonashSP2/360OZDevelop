@@ -192,8 +192,8 @@ class PeninsulaMapSection extends Component {
     }
 
     _resize = () => this._onViewportChange({
-        width: this.props.width || 870,
-        height: this.props.height || 650
+      width: this.props.width || window.innerWidth - window.innerWidth*0.4,
+      height: this.props.height || window.innerHeight - window.innerHeight*0.2
     });
 
     _updateViewport = (viewport) => {
@@ -390,13 +390,7 @@ class PeninsulaMapSection extends Component {
                         {School.map(this._renderSchoolPin)}
 
                         <div className="control-panel"
-                             style={{
-                                 background: 'white',
-                                 margin: '10px 10px 20px 640px',
-                                 padding: '10px 20px 20px 20px',
-                                 opacity: '0.8',
-                                 borderRadius: '10px'
-                             }}>
+                             id="markerPanel">
                             <h4>
 
                               <span >Click marker for details</span>
@@ -421,13 +415,7 @@ class PeninsulaMapSection extends Component {
 
                           </div>
                           <div className="control-panel"
-                               style={{
-                                   background: 'white',
-                                   margin: '200px 10px 20px 700px',
-                                   padding: '10px 20px 20px 20px',
-                                   opacity: '0.8',
-                                   borderRadius: '10px'
-                               }}>
+                               id="legendPanel">
                               <h4>
                                   Chinese Population
                               </h4>

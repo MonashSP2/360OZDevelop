@@ -23,6 +23,8 @@ import UsefulInfoOhsc from './pages/UsefulInfoOhsc';
 import UsefulInfoCampus from './pages/UsefulInfoCampus';
 import UsefulInfoTransportation from './pages/UsefulInfoTransportation';
 import UsefulLinks from './pages/Usefullinks';
+import AboutUs from './pages/AboutUs';
+
 
 function onAuthRequired({history}) {
   history.push('/login');
@@ -42,6 +44,7 @@ class Body extends Component {
           <Route path='/searchpeninsula' component={SearchPeninsula}/>
           <Route exact path='/after' component={After}/>
           <Route exact path='/usefullinkes' component={UsefulLinks}/>
+          <Route exact path='/aboutus' component={AboutUs}/>
           <Route exact path='/usefulinfophone' component={UsefulInfoPhone}/>
           <Route exact path='/usefulinfobank' component={UsefulInfoBank}/>
           <Route exact path='/usefulinfocampus' component={UsefulInfoCampus}/>

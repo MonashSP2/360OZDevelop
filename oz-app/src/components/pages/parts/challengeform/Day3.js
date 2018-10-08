@@ -13,7 +13,7 @@ const Day3 = props => {
               <span className="beforeTitle">
                 Explore Melbourne</span>
             </div>
-            <div id="dayDetail" style={{width:'70%'}}>
+            <div id="dayDetail">
               Experience Australian Culture according to your preferences
             </div>
         </div>

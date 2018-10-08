@@ -89,10 +89,29 @@
   content: '令人兴奋的3天计划，到达，适应并融入在墨尔本';
   font-size: 14px;
 }
+#translateSwitch{
+  position:absolute;
+  top:3.5%;
+  right:24%;
+  margin-left:10px;
+  background-color:#FF8567
+}
 #usefulLink{
   position:absolute;
   top:3.1%;
-  right:14%;
+  right:13%;
+  margin-left:10px;
+  color:white;
+  border-radius: 20px;
+  background-color: #FF8567;
+  padding: 5px 10px 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+#aboutusLink{
+  position:absolute;
+  top:3.1%;
+  right:4%;
   margin-left:10px;
   color:white;
   border-radius: 20px;
@@ -113,5 +132,31 @@
   .beforeExplanation{
     position: absolute;
     left: 35%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #welcomeDesc{
+    width: 400px;
+  }
+  #homeDesc{
+    width: 400px;
+    color: #7F7F7F;
+    font-size: 16px;
+  }
+  .beforeExplanation{
+    position: absolute;
+    left: 20%;
+  }
+  .welcomeExplanation{
+    left: 20%;
+  }
+  #translateSwitch{
+    right:32%;
+  }
+  #usefulLink{
+    right:16%;
+  }
+  #aboutusLink{
+    right:4%;
   }
 }

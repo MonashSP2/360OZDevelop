@@ -88,3 +88,26 @@
   }
 
 }
+@media screen and (max-width: 1024px) {
+  .beforeButton{
+    width: 300px;
+  }
+  .beforeButton::before {
+    margin-top: -35px;
+}
+  .beforeButton::after {
+    margin-left: 50px;
+    width: 10%;
+  }
+  .arriveButton{
+    width: 300px;
+  }
+  .arriveButton::before {
+    margin-top: -35px;
+}
+  .arriveButton::after {
+    margin-left: 60px;
+    width: 10%;
+  }
+
+}

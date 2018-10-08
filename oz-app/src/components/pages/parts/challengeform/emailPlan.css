@@ -39,3 +39,17 @@
   top: 15%;
   left: 6%;
 }
+@media screen and (max-width: 1024px) {
+  #emailTabBackgroud{
+    width: 600px;
+  }
+  #emailForm{
+    width: 450px;
+  }
+  #emailSubmit{
+    width: 300px;
+  }
+  #emailSubmitButton{
+    width: 120px;
+  }
+}

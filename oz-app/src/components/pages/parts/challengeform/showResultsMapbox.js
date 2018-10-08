@@ -18,14 +18,12 @@ const TabPane = Tabs.TabPane;
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoicHNvbjAwMDEiLCJhIjoiY2pmeGZwdDc2NGEyNDMybnZuMDU0NTh6ZiJ9.NIPbcggFfW6c0tVUp9gvdA';
 
-
 const navStyle = {
     position: 'absolute',
     bottom: 30,
     left: 0,
     padding: '10px'
 };
-
 
 function callback(key) {
   console.log(key);
@@ -203,7 +201,6 @@ class Results extends Component {
                          });
                      }
                })
-
 
                fetch('http://35.189.58.222/ondaychallenge/' + '/railwaystation/'+ day2UrlParameter[0] + '/'+ day2UrlParameter[1] +'/' + day2UrlParameter[2] +'/' +  day2UrlParameter[3] +'/'+ locationSplit[0] + '/' + locationSplit[1] + '/')
                // fetch('http://localhost:3002/ondaychallenge/vadafone/commonwealth/restaurant/-33.8670522/151.1957362')

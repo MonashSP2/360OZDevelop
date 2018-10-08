@@ -135,9 +135,7 @@ class EmailPlan extends Component {
               <button id="emailSubmitButton">Send</button>
             </div>
               <div>
-
               </div>
-
             </form>
           </div>
         </div>

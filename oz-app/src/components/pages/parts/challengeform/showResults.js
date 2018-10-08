@@ -397,9 +397,8 @@ console.log(day1UrlParameter);
                 day3: this.state.returnPointsDay3 } }}/>
           )}
         </div>
-            <Tabs style={{position:'absolute',left:'-41%',top:'8%',width:'93vw',height:'90vh',paddingLeft:'500px'}}
-              tabBarGutter='100px' tabBarStyle={{border:'none'}} defaultActiveKey="1"  onChange={callback}>
-
+            <Tabs id="tabSection" style={{position:'absolute',left:'-41%',top:'8%',width:'93vw',height:'90vh',paddingLeft:'500px'}}
+              tabBarGutter='0px' tabBarStyle={{border:'none'}} defaultActiveKey="1"  onChange={callback}>
 
                 <TabPane tab="Day 1" key="1" >
                   <div>
