@@ -123,7 +123,7 @@ class PeninsulaMapSection extends Component {
                  }}>
                 <div>Suburb: {hoveredFeature.properties.Suburb}</div>
                 <div>Population of Chinese Resident: {hoveredFeature.properties.ChinesePopulationRate}</div>
-                <div>Count of Crime/Offence (2017): {hoveredFeature.properties.CrimeRate}</div>
+                <div>Crime Rate (2017): {hoveredFeature.properties.CrimeRate}</div>
                 <div>1-bed Flat Avg. Rental Rate (2018): {hoveredFeature.properties.RentalRate_1Bed_Flat}</div>
             </div>
         );

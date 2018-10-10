@@ -19,10 +19,10 @@ const UsefulInfoBank =()=>{
           Some of these banks include:
         </p>
           <ul id="infoLink">
-          <li><a href="http://bit.ly/2NN48nU">Commonwealth Bank - $139.216 billion (Market Capitalisation 2017)</a></li>
-          <li><a href="http://bit.ly/2QylgMX">Westpac - $106.821 billion (Market Capitalisation 2017)</a></li>
-          <li><a href="http://bit.ly/2QvMN1n">ANZ - $83.599 billion (Market Capitalisation 2017)</a></li>
-          <li><a href="https://nab.co/2xcgU5R">NAB - $79.465 billion (Market Capitalisation 2017))</a></li>
+          <li><a href="http://bit.ly/2NN48nU">Commonwealth Bank</a></li>
+          <li><a href="http://bit.ly/2QylgMX">Westpac</a></li>
+          <li><a href="http://bit.ly/2QvMN1n">ANZ</a></li>
+          <li><a href="https://nab.co/2xcgU5R">NAB</a></li>
           </ul>
         </div>
       </div>

@@ -47,8 +47,9 @@ const Day1 = props => {
             component="input"
             type="checkbox"
             style={{marginRight:'10px'}}
-          />
+          /> <a id="question" target="_blank" rel="noopener noreferrer" href="/usefulinfotransportation"></a>
         <label htmlFor="mykiCard"><span>Get a Myki card</span></label>
+
           <div>
             <span style={{float:'left',color:'#939393',marginTop:'6px',marginLeft:'26px'}}>
               Be able to use public transport.

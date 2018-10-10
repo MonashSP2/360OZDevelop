@@ -1,3 +1,20 @@
+
+#translateSwitchForm{
+  position:absolute;
+  top:-68%;
+  right:24%;
+  margin-left:10px;
+  background-color:#FF8567
+}
+
+#planIdLanguage::after{
+  position: absolute;
+  top: 60%;
+  left: 0%;
+  content:'这个为期3天的计划是为你在墨尔本的前3天进行规划的，其中包括有助于你过渡到这个新环境的活动，要做的事情以及你可以遵循的最佳路线';
+  font-size: 14px;
+}
+
 .dropItem{
   margin-top: 70px;
   color: white;
@@ -122,5 +139,12 @@
   #inputInterest{
     width:260px;
     font-size: 17px;
+  }
+  #submitButtonSection{
+    right: -65%;
+  }
+  #translateSwitchForm{
+    right:36%;
+    top:-62%;
   }
 }

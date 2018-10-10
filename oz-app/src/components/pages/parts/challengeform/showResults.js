@@ -69,12 +69,12 @@ class Results extends Component {
                resultArrayJson[key] = 'a'
              }
              if (key === 'beddings' && resultArrayJson[key] === true){
-               resultArrayJson[key] = 'home_goods_store|store'
+               resultArrayJson[key] = 'beddings'
              }else if (key === 'beddings' && resultArrayJson[key] === false){
                resultArrayJson[key] = 'a'
              }
              if (key === 'cooking' && resultArrayJson[key] === true){
-               resultArrayJson[key] = 'cooking'
+               resultArrayJson[key] = 'kirchen utensils'
              }else if (key === 'cooking' && resultArrayJson[key] === false){
                resultArrayJson[key] = 'a'
              }
@@ -111,13 +111,14 @@ class Results extends Component {
          let day2UrlParameter =[];
          let day3UrlParameter =[];
          for (key in resultArrayJson) {
+           console.log(resultArrayJson[key]);
           if (key === 'simCard'){
            day1UrlParameter.push('shop'+'&'+resultArrayJson[key])}
           else if (key === 'mykiCard'){
              day1UrlParameter.push('convenience_store'+'&'+resultArrayJson[key])}
           else if (key === 'bankCard'){
               day1UrlParameter.push('bank'+'&'+resultArrayJson[key])}
-          else if (key === 'goCampus'){
+          else if (key === 'goCampus' && resultArrayJson[key] !='---Choose the Campus ---'){
                 day1UrlParameter.push('university'+'&'+resultArrayJson[key])}
           else if (key === 'groceries'){
               day2UrlParameter.push('store|supermarket'+'&'+resultArrayJson[key])}
@@ -199,9 +200,12 @@ console.log(day1UrlParameter);
                         type:'Go to your campus'
                       })
                     }
+                    if (day1UrlParameter[i] === 'university&---Choose the Campus ---'){
+                      console.log(day1UrlParameter[i]);
+                    }
+
                   }
                   const alphabet = ['B','C','D','E']
-                  console.log(json);
                   let counter = 0;
                   for (let i = 0; i < json.length; i++) {
                     if (json[i]){
@@ -214,16 +218,17 @@ console.log(day1UrlParameter);
                         json[i].number = alphabet[counter]
                         counter += 1
                       }else if (json[i].type === 'bank') {
-                        json[i].type = 'Get a local bank card at'
+                        json[i].type = 'Open a bank card with'
                         json[i].number = alphabet[counter]
                         counter += 1
                       }else if (json[i].type === 'Go to your campus') {
                         json[i].number = alphabet[counter]
                         counter += 1
                       }
-                      console.log(json[i].type);
+
                     }
                   }
+                  console.log(json);
                    this.setState({
                        isLoaded: true,
                        returnPoints: json,

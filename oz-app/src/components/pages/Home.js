@@ -47,9 +47,7 @@ export default class Home extends Component {
         <div style={{float:'right', margin:'20px'}}>
 
           <Switch id="translateSwitch" checkedChildren="英" unCheckedChildren="中" onChange={this.onChange} defaultChecked />
-          <Link id="usefulLink" to='/usefullinkes'>Useful Links</Link>
-          <Link id="aboutusLink" to='/aboutus'>About Us</Link>
-        </div>
+          </div>
 
         <div className="button-container">
           <Link to='/searchcampus'><BeforeButton /></Link>

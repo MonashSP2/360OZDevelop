@@ -32,6 +32,10 @@ const Day3 = props => {
               type="checkbox"
               style={{marginRight:'10px'}}
             /><label htmlFor="arts"><span>Arts</span></label>
+            <div>
+              <span style={{float:'left',color:'#939393',marginLeft:'26px'}}>
+Explore Melbourne’s world-class art galleries and cultural institutions e.g NGV, Melbourne Fine Arts Gallery              </span>
+            </div>
           </div>
 
           <div id='planItem'>
@@ -42,6 +46,10 @@ const Day3 = props => {
             type="checkbox"
               style={{marginRight:'10px'}}
           /><label htmlFor="history"><span>History</span></label>
+          <div>
+            <span style={{float:'left',color:'#939393',marginLeft:'26px'}}>
+Discover Melbourne's rich and diverse cultural heritage e.g Shrine of Remembrance, Chinese Museum            </span>
+          </div>
           </div>
 
           <div id='planItem'>
@@ -52,6 +60,10 @@ const Day3 = props => {
                 type="checkbox"
                 style={{marginRight:'10px'}}
               /><label htmlFor="sports"><span>Attractions</span></label>
+              <div>
+                <span style={{float:'left',color:'#939393',marginLeft:'26px'}}>
+Explore Melbourne’s top-rated tourist attractions e.g. Federation Square, Royal Botanical Gardens                </span>
+              </div>
             </div>
             <div id='planItem'>
                 <Field
@@ -61,6 +73,10 @@ const Day3 = props => {
                   type="checkbox"
                   style={{marginRight:'10px'}}
                 /><label htmlFor="sports"><span>Wildlife</span></label>
+                <div>
+                  <span style={{float:'left',color:'#939393',marginLeft:'26px'}}>
+Discover Melbourne’s urban wildlife surrounded by nature e.g Sea Life Aquarium, Melbourne Zoo                  </span>
+                </div>
             </div>
 
             <div>

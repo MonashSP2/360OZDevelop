@@ -11,6 +11,7 @@ import LocationRequest from './pages/LocationRequest';
 import PlanTemplate from './pages/PlanTemplate';
 import Results from './pages/parts/challengeform/showResults';
 import EmailPlan from './pages/parts/challengeform/emailPlan';
+import { Link } from 'react-router-dom';
 
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Login from './pages/Login';
@@ -34,6 +35,10 @@ class Body extends Component {
   render() {
     return (
       <main>
+        <div style={{float:'right', margin:'20px'}}>
+          <a id="usefulLink" target="_blank" rel="noopener noreferrer" href="/usefullinkes">Useful Links</a>
+          <a id="aboutusLink" target="_blank" rel="noopener noreferrer" href="/aboutus">About Us</a>
+        </div>
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/before' component={Before}/>

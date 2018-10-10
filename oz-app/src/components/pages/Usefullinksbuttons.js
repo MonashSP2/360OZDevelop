@@ -51,7 +51,7 @@ class UsefulInfoButton extends Component{
       <div className="beforeContainer">
           <div className="usefulSection" style={{marginBottom:'20px'}}>
             <button style={{width:'250px',paddingLeft:'0px',paddingRight:'0px',border:'none', background:'none'}} onClick={this.toBank}>
-              <span className="beforeTitle">
+              <span className="beforeTitle" style={{paddingLeft:'0px'}}>
                 International Student Banking
                 {toBank && (
                 <Redirect to='/usefulinfobank' />)}
@@ -59,7 +59,7 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none',paddingRight:'0px', background:'none'}} onClick={this.toCampus}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none', background:'none'}} onClick={this.toCampus}>
               <span className="beforeTitle">
                 Housing On and Off Campus
                 {toCampus && (
@@ -68,7 +68,7 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none',paddingRight:'0px', background:'none'}} onClick={this.toTransportation}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none', background:'none'}} onClick={this.toTransportation}>
               <span className="beforeTitle">
                 Public Transportation
                 {toTransportation && (
@@ -77,7 +77,7 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none', paddingRight:'0px',background:'none'}} onClick={this.toPhone}>
+            <button style={{width:'250px',paddingLeft:'0px',border:'none', background:'none'}} onClick={this.toPhone}>
               <span className="beforeTitle">
                 Australian Mobile Carriers
                 {toPhone && (
@@ -86,9 +86,9 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none', paddingRight:'0px',background:'none'}} onClick={this.toJob}>
+            <button style={{width:'250px',border:'none', background:'none'}} onClick={this.toJob}>
               <span className="beforeTitle">
-                Jobs
+                Jobs Information
                 {toJob && (
                 <Redirect to='/usefulinfojob' />)}
               </span>

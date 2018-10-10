@@ -36,6 +36,26 @@
   top:15%;
   left: 30%;
 }
+#exploreId{
+  position: absolute;
+  top:15%;
+  left: 30%;
+  height: 120px;
+}
+#exploreIdLanguage{
+  position: absolute;
+  top:15%;
+  left: 30%;
+  height: 130px;
+
+}
+#exploreIdLanguage::after{
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  content: '根据你的生活方式，兴趣，人口统计数据和其他重要信息找到最佳郊区';
+  font-size: 14px;
+}
 #searchCampusStart{
   position: absolute;
   top:30%;
