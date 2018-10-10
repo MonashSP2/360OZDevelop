@@ -25,7 +25,7 @@
   border-width: 0px 0px 0px 0px;
   padding: 10px 30px 10px 30px;
   box-shadow: 0px 1px 15px  rgba(0%,0%,0%,0.3);
-  font-size: 20px;
+  font-size: 12px;
 }
 .usefulSection::before {
   content: "";

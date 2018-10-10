@@ -50,8 +50,8 @@ class UsefulInfoButton extends Component{
       <div>
       <div className="beforeContainer">
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',paddingRight:'0px',border:'none', background:'none'}} onClick={this.toBank}>
-              <span className="beforeTitle" style={{paddingLeft:'0px'}}>
+            <button style={{border:'none', background:'none'}} onClick={this.toBank}>
+              <span style={{fontSize:'14px'}} className="beforeTitle">
                 International Student Banking
                 {toBank && (
                 <Redirect to='/usefulinfobank' />)}
@@ -59,8 +59,8 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none', background:'none'}} onClick={this.toCampus}>
-              <span className="beforeTitle">
+            <button style={{border:'none', background:'none'}} onClick={this.toCampus}>
+              <span style={{fontSize:'14px'}} className="beforeTitle">
                 Housing On and Off Campus
                 {toCampus && (
                 <Redirect to='/usefulinfocampus' />)}
@@ -68,8 +68,8 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none', background:'none'}} onClick={this.toTransportation}>
-              <span className="beforeTitle">
+            <button style={{border:'none', background:'none'}} onClick={this.toTransportation}>
+              <span style={{fontSize:'14px'}} className="beforeTitle">
                 Public Transportation
                 {toTransportation && (
                 <Redirect to='/usefulinfotransportation' />)}
@@ -77,8 +77,8 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',paddingLeft:'0px',border:'none', background:'none'}} onClick={this.toPhone}>
-              <span className="beforeTitle">
+            <button style={{border:'none', background:'none'}} onClick={this.toPhone}>
+              <span style={{fontSize:'14px'}} className="beforeTitle">
                 Australian Mobile Carriers
                 {toPhone && (
                 <Redirect to='/usefulinfophone' />)}
@@ -86,8 +86,8 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'250px',border:'none', background:'none'}} onClick={this.toJob}>
-              <span className="beforeTitle">
+            <button style={{border:'none', background:'none'}} onClick={this.toJob}>
+              <span style={{fontSize:'14px'}} className="beforeTitle">
                 Jobs Information
                 {toJob && (
                 <Redirect to='/usefulinfojob' />)}
@@ -95,8 +95,8 @@ class UsefulInfoButton extends Component{
             </button>
           </div>
           <div className="usefulSection" style={{marginBottom:'20px'}}>
-            <button style={{width:'260px',paddingLeft:'0px',border:'none',paddingRight:'0px', background:'none'}} onClick={this.toOhsc}>
-              <span className="beforeTitle">
+            <button style={{border:'none', background:'none'}} onClick={this.toOhsc}>
+              <span style={{fontSize:'14px'}} className="beforeTitle">
                 Overseas Student Health Cover
                 {toOhsc && (
                 <Redirect to='/usefulinfoohsc' />)}
