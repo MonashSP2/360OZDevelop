@@ -29,7 +29,7 @@ class SearchCampus extends Component {
     e.preventDefault();
     const text = e.target.location.value
     const textsplit = text.split(' ')
-    const locationAPI = await fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+ textsplit[0]+ '+'+ textsplit[1]+ '+'+ textsplit[2]+'+au&sensor=true_or_false&key=AIzaSyBH3mukd7XibmeMUra3_vYBSFnp82F3dsA')
+    const locationAPI = await fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+ textsplit[0]+ '+'+ textsplit[1]+ '+'+ textsplit[2]+'+au&sensor=true_or_false&key=YOURAPIKEY')
 
     const data = await locationAPI.json();
     console.log(data.results[0]);
